@@ -7,16 +7,21 @@ We have created application that can help you show others what flowers and plant
 ----------
 
 <h4>Overview</h4>
-1. What does your app do? 
-  - Our application will ...
+
+1. What does your application do?
+    - Our app will
+
 2. Who worked on it?
- - Amanda Anderson, Andrew Porter, David Keller and 
+    - Amanda Anderson, Andrew Porter, David Keller and Nathan Levis
+
 3. What were you able to complete for this handin?
- - We were able to complete the following features
+    - We were able to complete the following features
+
 4. What are known problems, if any, with your project?
- - Know problems are....
+    - Know problems are....
+
 5. How would you improve it if you had more time?
- - If we had more time we would have made the machine learning a bigger part of our project. 
+   - If we had more time we would have made the machine learning a bigger part of our project. 
 
 ####  User Case 1 (to be filled in)
 
