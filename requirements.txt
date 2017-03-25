@@ -1,0 +1,6 @@
+Flask
+flask_socketio
+flask_testing
+psycopg2
+requests
+flask_sqlalchemy
