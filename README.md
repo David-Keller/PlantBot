@@ -1,8 +1,8 @@
 
-#PlantBot
+# PlantBot
 A browser-based app for identifying flowers and plants from your hiking adventures.
 
-###Overview
+### Overview
 1. What does your application do?
     - The app will allow users to:
       - Upload a picture from their hike, which enables users to easily identify flowers and plants
