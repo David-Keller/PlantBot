@@ -1,0 +1,85 @@
+body{
+    background-color:#eeeeee;
+    background-image:url("/static/bg.jpg");
+    background-size:cover;
+    background-repeat:no-repeat;
+}
+#app{
+    width:85%;
+    min-width:700px;
+    height:80%;
+    min-height:550px;
+    
+    margin:auto;
+    margin-top:5%;
+    padding:25px;
+    
+    
+    
+    text-align:center;
+}
+.displayTable{
+    margin:auto;
+    width:80%;
+    height:75%;
+    border:3px solid #46aa17;
+    border-radius: 10px;
+    background-color:#cccccc;
+}
+.bannerBox{
+    margin:auto;
+    width:50%;
+    border:3px solid #46aa17;
+    border-radius: 10px;
+    background-color:#cccccc;
+}
+h1{
+    margin:10px;
+}
+h2{
+    margin:5px;
+    text-align: center;
+}
+.windowContainer{
+    display:inline-block;
+    height:100%;
+    vertical-align:top;
+    float:left;
+}
+.windowContainer:first-child{
+    height:100%;
+}
+.window{
+    background-color:#cccccc;
+    padding-right:30px;
+    border:3px solid #46aa17;
+    border-radius: 10px;
+    height:100%;
+    text-align: left;
+    overflow:auto;
+}
+.windowContainer.messages{
+    width:80%;
+}
+.windowContainer.users{
+    width:20%;
+}
+.textinput{
+    width:75%;
+    height:25px;
+}
+.messageBar{
+    padding:10px;
+    border:3px solid #46aa17;
+    border-radius: 10px;
+    background-color:#cccccc;
+}
+.messageICO{
+    height:50px;
+}
+.messageDiv li{
+    border:2px solid black;
+    border-radius:10px;
+    padding:5px;
+    list-style:none;
+}
