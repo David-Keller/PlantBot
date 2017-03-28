@@ -5,11 +5,11 @@ class ServerIntegrationTestCase(flask_testing.LiveServerTestCase):
         return app.app
 
     def test_server_sends_index(self):
-        r = requests.get(self.get_server_url() + "/"))
+        r = requests.get(self.get_server_url() + "/")
         self.assertEquals(r.status_code, 200)
     
     def test_server_401(self):
-        r= requests.get((self.get_server_url() + "/badpage"))
+        r= requests.get(self.get_server_url() + "/badpage")
         self.assertEquals(r.status_code, 404)
         
 if __name__ == '__main__':
