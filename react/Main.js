@@ -25,3 +25,8 @@ rend();
 Socket.on('connect', function(){
     console.log("Client Connected!");
 });
+
+// When the user gets a hello message, print it to console
+Socket.on('hello', function(data){
+    console.log(data["message"]);
+});
