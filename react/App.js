@@ -1,5 +1,4 @@
 import * as React from 'react';
-//import { Button } from './Button';
 
 
 export class App extends React.Component {
@@ -14,8 +13,7 @@ export class App extends React.Component {
                         data-size="medium"
                         data-show-faces="false"
                         data-auto-logout-link="true">
-                    </div>
-                    <Button />                   
+                    </div>                  
 
                     </div>
                 </div>
