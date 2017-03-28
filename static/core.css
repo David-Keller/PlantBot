@@ -1,5 +1,6 @@
 body{
-    background-color:#eeeeee;
+    
+    background-color: lightgreen;
     background-image:url("/static/bg.jpg");
     background-size:cover;
     background-repeat:no-repeat;
@@ -13,7 +14,7 @@ body{
     margin:auto;
     margin-top:5%;
     padding:25px;
-    
+    background-color:#eeeeee;
     
     
     text-align:center;
