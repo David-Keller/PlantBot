@@ -2,6 +2,7 @@ import os
 import flask
 from flask_socketio import SocketIO
 import requests
+
 if os.getenv("CIRCLE_CI_TEST_ENV") != "TRUE":
     # import stuff that breaks CircleCI (db models?)
     print (os.getenv("CIRCLE_CI_TEST_ENV"))

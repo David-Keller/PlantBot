@@ -13069,7 +13069,13 @@ var App = exports.App = function (_React$Component) {
                         "h1",
                         { className: "banner" },
                         "Hello from PlantBot!"
-                    )
+                    ),
+                    React.createElement("div", {
+                        className: "fb-login-button",
+                        "data-max-rows": "1",
+                        "data-size": "medium",
+                        "data-show-faces": "false",
+                        "data-auto-logout-link": "true" })
                 )
             );
         }
@@ -13244,7 +13250,7 @@ var rend = function rend() {
 
 rend();
 
-// When the user connects to the server, introduce ChatBot and re-render React
+// When the user connects to the server, let the console know
 Socket.on('connect', function () {
     console.log("Client Connected!");
 });

@@ -3,6 +3,7 @@ import * as ReactDOM from 'react-dom';
 
 import { App } from './App';
 
+
 // Init the SocketIO layer
 import * as SocketIO from 'socket.io-client';
 var Socket = SocketIO.connect();
