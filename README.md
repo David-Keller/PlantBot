@@ -43,24 +43,67 @@ A browser-based app for identifying flowers and plants from your hiking adventur
     - I should be able to see my entries by date
 
 #### Case 3
-  - As a user, I should be able to login via Facebook, so that I can identify myself and take credit for the photo I’m uploading
+  - As a user, I should be able to login via Facebook, so that I can identify myself and take credit for the photo Iï¿½m uploading
     - Login with Facebook button is present on page when I am logged out
     - Login button takes me to Facebook login OAuth flow
     - Profile picture is pulled from Facebook
     - Real name is pulled from Facebook
     - Real name and profile picture are next any picture I submit
 
-#### Case 4
+#### Case 4  
+  - As a user, I should be able to login so that i can see my PB homepage
+    - I can use my Facebook login 
+    - Real name and profile picture are next any picture I submit
+    - Should be able to see what pictures i submitted
+    - Should have access to account details
+    - Should be able to see the date i joined the site 
+
+#### Case 5
   - As a user, I should be able to click on the map button and see where others have seen flowers.
     - Click on map button 
     - Map loads up showing pins of flower pictures.
     - Pictures should be clickable to see more info.
+    - Each pin looks the same but when clicked on shows a unique entry
+    - When a pin is clicked on, the image and the user is shown
 
-#### Case 5
+#### Case 6
   - As a non-user, I should not be able to interact website until I login using FaceBook, so that non-users cannot benefit from the service.
     - Should be prompted to login once the website loads.
     - Should not be able to progress past login screen. 
     - Should be prompted to allow facebook to interact with the website.
+    - Should be able to see a weleome screen 
+    - Should be able to see a paragraph explaining the site itself
+
+#### Case 7 
+  - As a user, I should be able to share my pictures to facebook so that others can see my picture
+    - Should be able to see the share button
+    - Should be an option once i submit my picture
+    - Should get a confirmation message once it is uploaded
+    - Should display location on facebook where the picture was taken
+    - Should be no more than a two step process
+
+#### Case 8
+  -As a user, I should be able to edit old photos information so that i can correct information
+    - Should be a button on the main page next to the picture
+    - Should show that the image info was modified
+    - User will need to be logged into facebook to do this
+    - Should not be able to change upload date
+    - The changes should be seen by all who look at the photo
+
+#### Case 9 
+  -  As a user, I should be able to logout of facebook so that on public computers i donâ€™t have to worry about my privacy  
+    - Should be able to do this by going through facebook button
+    - Should not be able to still look at content from site
+    - Should not be able to upload pictures 
+    - Should be prompted to login without the username and password field already having info in them
+
+#### Case 10 
+  - As a user, I should be able to go to the database page and look up pictures based on type of flower so that i can look for areas where one kind of flower grows
+    - Should be able to search based on flower type
+    - Should be same search steps as with location 
+    - The options for searching should be show this option on the database page
+    - Should show flowers according to filter options 
+    - Should be able to change the filter order options
 
 ### Mocks
 #### Landing Page
