@@ -1,5 +1,5 @@
 import * as React from 'react';
-
+import { Leaf } from './Leaf';
 
 export class App extends React.Component {
     
@@ -21,7 +21,7 @@ export class App extends React.Component {
                       acess any of our applications cool features!</p>
                      
                     </div>
-                    
+                    <Leaf />
                 </div>
                 );
     }

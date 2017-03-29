@@ -4,13 +4,14 @@
   "description": "Welcome to PlantBot! ===================",
   "main": "/static/Main.js",
   "dependencies": {
-    "socket.io-client": "latest",
     "babel-core": "latest",
     "babel-loader": "latest",
     "babel-preset-es2015": "latest",
-    "react-dom": "latest",
-    "react": "latest",
     "babel-preset-react": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-leaflet": "latest",
+    "socket.io-client": "latest",
     "webpack": "latest"
   },
   "devDependencies": {},
