@@ -9045,7 +9045,7 @@ module.exports = focusNode;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(global) {
+
 
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -9071,7 +9071,7 @@ module.exports = focusNode;
  * @return {?DOMElement}
  */
 function getActiveElement(doc) /*?DOMElement*/{
-  doc = doc || global.document;
+  doc = doc || (typeof document !== 'undefined' ? document : undefined);
   if (typeof doc === 'undefined') {
     return null;
   }
@@ -9083,7 +9083,6 @@ function getActiveElement(doc) /*?DOMElement*/{
 }
 
 module.exports = getActiveElement;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
 
 /***/ }),
 /* 69 */
@@ -13116,6 +13115,8 @@ var App = exports.App = function (_React$Component) {
                         { className: "banner" },
                         "Hello from PlantBot!"
                     ),
+                    React.createElement("img", { src: "http://www.herbhedgerow.co.uk/herb/wp-content/uploads/2013/04/Nettle-Leaf.png" }),
+                    React.createElement("p", null),
                     React.createElement("div", {
                         className: "fb-login-button",
                         "data-max-rows": "1",
@@ -13125,7 +13126,7 @@ var App = exports.App = function (_React$Component) {
                     React.createElement(
                         "p",
                         null,
-                        "Welcome to the PlantBot site! This site allows you to post, share and track all of the plants you have seen while on trails in your city. To begin you need to login through the FaceBook link above, until you login you will not be able to acess any of our applications cool features!"
+                        "Welcome to the PlantBot site! This site allows you to post, share and track all of the plants you have seen while on trails in your city. To begin you need to login through the FaceBook link above, until you login you will not be able to acess any of our applications cool features including our database of all past uploaded images and locations!"
                     )
                 )
             );
