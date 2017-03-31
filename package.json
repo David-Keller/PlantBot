@@ -11,6 +11,7 @@
     "react": "latest",
     "react-dom": "latest",
     "react-leaflet": "latest",
+    "leaflet": "latest",
     "socket.io-client": "latest",
     "webpack": "latest"
   },
