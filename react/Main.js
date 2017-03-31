@@ -9,8 +9,9 @@ import * as SocketIO from 'socket.io-client';
 var Socket = SocketIO.connect();
 
 // Function to dispatch new message when "Send" is clicked in React
-var clicker = function(){
-    console.log("clicker clicked!");
+var clicker = function(data){
+    console.log("clicker clicked, data:");
+    console.log(data);
 };
 
 // Render the React components - call after state change
