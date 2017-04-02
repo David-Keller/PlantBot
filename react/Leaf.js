@@ -4,10 +4,11 @@ import { Map, TileLayer, Marker, Popup } from 'react-leaflet'
 export class Leaf extends Component {
   constructor() {
     super();
+    //36.6844° N, 121.8022° W = marina, Ca
     this.state = {
-      lat: 51.505,
-      lng: -0.09,
-      zoom: 13,
+      lat: 36.6844,
+      lng: -121.8022,
+      zoom: 12,
     };
   }
 
@@ -21,7 +22,7 @@ export class Leaf extends Component {
         />
         <Marker position={position}>
           <Popup>
-            <span>A pretty CSS3 popup. <br /> Easily customizable.</span>
+            <span>Marina. <br /> California.</span>
           </Popup>
         </Marker>
       </Map>
