@@ -36,3 +36,18 @@ class plants(db.Model):
     def __repr__(self):
         return "Obj.plantName: %s" % self.plantName
         
+        
+class users(db.Model):
+    userid = db.Column(db.Integer, primary_key = True)
+    # userid = db.Column(db.Integer, unique = True)
+    userlevel = db.Column(db.Integer, default = 0)
+    facebook = db.Column(db.String(200))
+    username = db.Column(db.String(100))
+    
+    def __init__(self, facebook):
+        self.facebook = facebook
+        # self.userid = userid
+        
+    def __repr__(self):
+        return "Obj.user: %s, %s" % self.username, self.userid
+        
