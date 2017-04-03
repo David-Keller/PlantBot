@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {TestButton } from './testbutton';
+import {Upload} from './dragdrop';
 
 
 export class App extends React.Component {
@@ -21,7 +22,9 @@ export class App extends React.Component {
                      login through the FaceBook link above, until you login you will not be able to
                       acess any of our applications cool features!</p>
                      <TestButton />
-                    </div>
+                    
+                     <Upload />
+                     </div>
                     
                 </div>
                 );

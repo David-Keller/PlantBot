@@ -42,6 +42,7 @@ class users(db.Model):
     # userid = db.Column(db.Integer, unique = True)
     userlevel = db.Column(db.Integer, default = 0)
     facebook = db.Column(db.String(200))
+    fbid = db.Column(db.String(20))
     username = db.Column(db.String(100))
     
     def __init__(self, facebook):

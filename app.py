@@ -2,6 +2,10 @@ import os
 import flask
 from flask_socketio import SocketIO
 import requests
+from datetime import datetime
+
+
+import models
 
 if os.getenv("CIRCLE_CI_TEST_ENV") != "TRUE":
     # import stuff that breaks CircleCI (db models?)
@@ -46,6 +50,44 @@ def connect():
     # Optionally, do stuff that breaks CircleCI
     if os.getenv("CIRCLE_CI_TEST_ENV") != "TRUE":
         print "CircleCI environment not found!"
+
+@socketio.on('user test')
+def user_test(data):
+    print("recived fb info")
+    response = requests.get('https://graph.facebook.com/v2.8/me?fields=id%2Cname%2Cpicture&access_token=' + data['facebook_user_token'])
+    json = response.json()
+    #check if user already exists
+    result = models.db.engine.execute("select fbid as fbid from users where fbid='%s'" % json['id'])
+    rows = result.fetchall()
+    print rows
+    if(len(rows) == 0):
+        user = models.users(data['facebook_user_token'])
+        user.username = json['name']
+        user.fbid = json['id']
+        models.db.session.add(user)
+        models.db.session.commit()
+    else:
+        print("user already exists")
+        
+
+@socketio.on('post')
+def post(data):
+    response = requests.get('https://graph.facebook.com/v2.8/me?fields=id%2Cname%2Cpicture&access_token=' + data['facebook_user_token'])
+    json = response.json()
+    result = models.db.engine.execute("select * from users where fbid='%s'" % json['id'])
+    rows = result.fetchall()
+    
+    if(len(rows) == 0): #check if user exists
+        print("error user doesnt exist")
+    else:
+        plant = models.plants(data['img'], rows[0][id], data['plantname'], data['location'], datetime.now())
+    
+    
+    
+    
+    
+    
+    
  
 # Run the application
 if __name__ == '__main__':

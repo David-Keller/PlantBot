@@ -13144,7 +13144,7 @@ module.exports = function(module) {
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 exports.App = undefined;
 
@@ -13156,6 +13156,8 @@ var React = _interopRequireWildcard(_react);
 
 var _testbutton = __webpack_require__(111);
 
+var _dragdrop = __webpack_require__(238);
+
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -13165,46 +13167,47 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var App = exports.App = function (_React$Component) {
-    _inherits(App, _React$Component);
+  _inherits(App, _React$Component);
 
-    function App() {
-        _classCallCheck(this, App);
+  function App() {
+    _classCallCheck(this, App);
 
-        return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
+    return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
+  }
+
+  _createClass(App, [{
+    key: 'render',
+    value: function render() {
+      return React.createElement(
+        'div',
+        null,
+        React.createElement(
+          'div',
+          { className: 'plantBotApp' },
+          React.createElement(
+            'h1',
+            { className: 'banner' },
+            'Hello from PlantBot!'
+          ),
+          React.createElement('div', {
+            className: 'fb-login-button',
+            'data-max-rows': '1',
+            'data-size': 'medium',
+            'data-show-faces': 'false',
+            'data-auto-logout-link': 'true' }),
+          React.createElement(
+            'p',
+            null,
+            'Welcome to the PlantBot site! This site allows you to post, share and track all of the plants you have seen while on trails in your city. To begin you need to login through the FaceBook link above, until you login you will not be able to acess any of our applications cool features!'
+          ),
+          React.createElement(_testbutton.TestButton, null),
+          React.createElement(_dragdrop.Upload, null)
+        )
+      );
     }
+  }]);
 
-    _createClass(App, [{
-        key: 'render',
-        value: function render() {
-            return React.createElement(
-                'div',
-                null,
-                React.createElement(
-                    'div',
-                    { className: 'plantBotApp' },
-                    React.createElement(
-                        'h1',
-                        { className: 'banner' },
-                        'Hello from PlantBot!'
-                    ),
-                    React.createElement('div', {
-                        className: 'fb-login-button',
-                        'data-max-rows': '1',
-                        'data-size': 'medium',
-                        'data-show-faces': 'false',
-                        'data-auto-logout-link': 'true' }),
-                    React.createElement(
-                        'p',
-                        null,
-                        'Welcome to the PlantBot site! This site allows you to post, share and track all of the plants you have seen while on trails in your city. To begin you need to login through the FaceBook link above, until you login you will not be able to acess any of our applications cool features!'
-                    ),
-                    React.createElement(_testbutton.TestButton, null)
-                )
-            );
-        }
-    }]);
-
-    return App;
+  return App;
 }(React.Component);
 
 /***/ }),
@@ -30210,6 +30213,119 @@ module.exports = __webpack_amd_options__;
 /***/ (function(module, exports) {
 
 /* (ignored) */
+
+/***/ }),
+/* 237 */,
+/* 238 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.Upload = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(38);
+
+var React = _interopRequireWildcard(_react);
+
+var _Socket = __webpack_require__(110);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Upload = exports.Upload = function (_React$Component) {
+    _inherits(Upload, _React$Component);
+
+    function Upload(props) {
+        _classCallCheck(this, Upload);
+
+        var _this = _possibleConstructorReturn(this, (Upload.__proto__ || Object.getPrototypeOf(Upload)).call(this, props));
+
+        _this.state = { file: '', imagePreviewUrl: '' };
+        return _this;
+    }
+
+    _createClass(Upload, [{
+        key: 'ImageChange',
+        value: function ImageChange(e) {
+            var _this2 = this;
+
+            e.preventDefault();
+            var reader = new FileReader();
+            var file = e.target.files[0];
+
+            reader.onloadend = function () {
+                _this2.setState({
+                    file: file,
+                    imagePreviewUrl: reader.result
+                });
+                console.log(reader.result);
+            };
+
+            reader.readAsDataURL(file);
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var _this3 = this;
+
+            var imagePreviewUrl = this.state.imagePreviewUrl;
+
+            var $imagePreview = null;
+            if (imagePreviewUrl) {
+                $imagePreview = React.createElement('img', { className: 'img', src: imagePreviewUrl });
+            } else {
+                $imagePreview = React.createElement(
+                    'div',
+                    { className: 'previewText' },
+                    'Please select an Image for Preview'
+                );
+            }
+            return React.createElement(
+                'div',
+                null,
+                React.createElement(
+                    'form',
+                    null,
+                    React.createElement(
+                        'div',
+                        null,
+                        React.createElement(
+                            'label',
+                            { 'for': 'my-file' },
+                            'Select File:'
+                        ),
+                        React.createElement('input', { id: 'my-file', name: 'my-file', type: 'file', multiple: true, onChange: function onChange(e) {
+                                return _this3.ImageChange(e);
+                            } })
+                    ),
+                    React.createElement(
+                        'button',
+                        { type: 'button', id: 'upload-button' },
+                        'Upload'
+                    )
+                ),
+                React.createElement(
+                    'div',
+                    { className: 'imgPreview' },
+                    $imagePreview
+                )
+            );
+        }
+    }]);
+
+    return Upload;
+}(React.Component);
 
 /***/ })
 /******/ ]);
