@@ -21,7 +21,7 @@ export class App extends React.Component {
                      of the plants you have seen while on trails in your city. To begin you need to 
                      login through the FaceBook link above, until you login you will not be able to
                       acess any of our applications cool features!</p>
-                     <TestButton />
+                     a9
                     
                      <Upload />
                      </div>

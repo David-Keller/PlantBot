@@ -13200,7 +13200,7 @@ var App = exports.App = function (_React$Component) {
             null,
             'Welcome to the PlantBot site! This site allows you to post, share and track all of the plants you have seen while on trails in your city. To begin you need to login through the FaceBook link above, until you login you will not be able to acess any of our applications cool features!'
           ),
-          React.createElement(_testbutton.TestButton, null),
+          'a9',
           React.createElement(_dragdrop.Upload, null)
         )
       );
@@ -30256,6 +30256,28 @@ var Upload = exports.Upload = function (_React$Component) {
     }
 
     _createClass(Upload, [{
+        key: '_handleSubmit',
+        value: function _handleSubmit(e) {
+            e.preventDefault();
+
+            //this is just test code right now
+
+            var imagePreviewUrl = this.state.imagePreviewUrl;
+
+
+            FB.getLoginStatus(function (response) {
+                if (response.status == 'connected') {
+                    _Socket.Socket.emit('post', {
+                        'facebook_user_token': response.authResponse.accessToken,
+                        'img': { imagePreviewUrl: imagePreviewUrl },
+                        'location': "127.2 40.34",
+                        'plantname': "rose"
+
+                    });
+                }
+            });
+        }
+    }, {
         key: 'ImageChange',
         value: function ImageChange(e) {
             var _this2 = this;
@@ -30311,7 +30333,7 @@ var Upload = exports.Upload = function (_React$Component) {
                     ),
                     React.createElement(
                         'button',
-                        { type: 'button', id: 'upload-button' },
+                        { type: 'submit', onClick: this._handleSubmit },
                         'Upload'
                     )
                 ),

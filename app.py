@@ -72,6 +72,7 @@ def user_test(data):
 
 @socketio.on('post')
 def post(data):
+    print("post recieved")
     response = requests.get('https://graph.facebook.com/v2.8/me?fields=id%2Cname%2Cpicture&access_token=' + data['facebook_user_token'])
     json = response.json()
     result = models.db.engine.execute("select * from users where fbid='%s'" % json['id'])
