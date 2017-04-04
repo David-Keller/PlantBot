@@ -18,7 +18,7 @@ class plants(db.Model):
     
     # Setup other columns
     img = db.Column(db.String(5000000))
-    userid = db.Column(db.Integer)
+    userid = db.Column(db.BigInteger)
     name = db.Column(db.String(60))
     location = db.Column(db.String(60))
     date = db.Column(db.DateTime)

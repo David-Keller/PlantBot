@@ -5,7 +5,18 @@ import { Socket } from './Socket';
 export class Upload extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {file: '',imagePreviewUrl: ''};
+        this.state = {file: '',imagePreviewUrl: '', name: '', _location: ''};
+
+     this._handleSubmit = this._handleSubmit.bind(this);
+     this.nameChange = this.nameChange.bind(this);
+     this.locationChange = this.locationChange.bind(this);
+    }
+    
+    nameChange(e){
+        this.setState({name: e.target.name});
+    }
+    locationChange(e){
+        this.setState({location: e.target._location});
     }
     
     _handleSubmit(e) {
@@ -57,6 +68,7 @@ export class Upload extends React.Component {
         }
         return(
             <div>
+                <input type="text" value={this.state.name} onChange={this.nameChange} />
                 <form>
                   <div>
                     <label for="my-file">Select File:</label>

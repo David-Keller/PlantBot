@@ -47,6 +47,11 @@ def index():
 def connect():
     print "\n  -->SCKT: User connected to Socket.IO manager..."
     socketio.emit("hello", {"message":"Hello from the Python server!"})
+    
+    result = models.db.engine.execute("select img from plants")
+    row = result.fetchall()
+    socketio.emit("img test", {'img': row[0][0]})
+    
     # Optionally, do stuff that breaks CircleCI
     if os.getenv("CIRCLE_CI_TEST_ENV") != "TRUE":
         print "CircleCI environment not found!"
@@ -75,14 +80,15 @@ def post(data):
     print("post recieved")
     response = requests.get('https://graph.facebook.com/v2.8/me?fields=id%2Cname%2Cpicture&access_token=' + data['facebook_user_token'])
     json = response.json()
-    result = models.db.engine.execute("select * from users where fbid='%s'" % json['id'])
+    result = models.db.engine.execute("select fbid from users where fbid='%s'" % json['id'])
     rows = result.fetchall()
     
     if(len(rows) == 0): #check if user exists
         print("error user doesnt exist")
     else:
-        plant = models.plants(data['img'], rows[0][id], data['plantname'], data['location'], datetime.now())
-    
+        plant = models.plants(data['img'], rows[0][0], data['plantname'], data['location'], datetime.now())
+        models.db.session.add(plant)
+        models.db.session.commit()
     
     
     
