@@ -13068,73 +13068,9 @@ module.exports = yeast;
 
 /***/ }),
 /* 104 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.App = undefined;
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(62);
-
-var React = _interopRequireWildcard(_react);
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var App = exports.App = function (_React$Component) {
-    _inherits(App, _React$Component);
-
-    function App() {
-        _classCallCheck(this, App);
-
-        return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
-    }
-
-    _createClass(App, [{
-        key: "render",
-        value: function render() {
-            return React.createElement(
-                "div",
-                null,
-                React.createElement(
-                    "div",
-                    { className: "plantBotApp" },
-                    React.createElement(
-                        "h1",
-                        { className: "banner" },
-                        "Hello from PlantBot!"
-                    ),
-                    React.createElement("img", { src: "http://www.herbhedgerow.co.uk/herb/wp-content/uploads/2013/04/Nettle-Leaf.png" }),
-                    React.createElement("p", null),
-                    React.createElement("div", {
-                        className: "fb-login-button",
-                        "data-max-rows": "1",
-                        "data-size": "medium",
-                        "data-show-faces": "false",
-                        "data-auto-logout-link": "true" }),
-                    React.createElement(
-                        "p",
-                        null,
-                        "Welcome to the PlantBot site! This site allows you to post, share and track all of the plants you have seen while on trails in your city. To begin you need to login through the FaceBook link above, until you login you will not be able to acess any of our applications cool features including our database of all past uploaded images and locations!"
-                    )
-                )
-            );
-        }
-    }]);
-
-    return App;
-}(React.Component);
+throw new Error("Module build failed: SyntaxError: Unexpected token (10:1)\n\n\u001b[0m \u001b[90m  8 | \u001b[39m    \n \u001b[90m  9 | \u001b[39m    render() {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 10 | \u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\n \u001b[90m    | \u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 11 | \u001b[39m        \u001b[36mreturn\u001b[39m( \u001b[33m<\u001b[39m\u001b[33mdiv\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m 12 | \u001b[39m                    \u001b[33m<\u001b[39m\u001b[33mdiv\u001b[39m className\u001b[33m=\u001b[39m\u001b[32m\"plantBotApp\"\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m 13 | \u001b[39m                        \u001b[33m<\u001b[39m\u001b[33mh1\u001b[39m className\u001b[33m=\u001b[39m\u001b[32m\"banner\"\u001b[39m\u001b[33m>\u001b[39m\u001b[33mHello\u001b[39m from \u001b[33mPlantBot\u001b[39m\u001b[33m!\u001b[39m\u001b[33m<\u001b[39m\u001b[33m/\u001b[39m\u001b[33mh1\u001b[39m\u001b[33m>\u001b[39m\u001b[0m\n");
 
 /***/ }),
 /* 105 */
@@ -13359,8 +13295,9 @@ var Socket = SocketIO.connect();
 
 
 // Init the SocketIO layer
-var clicker = function clicker() {
-    console.log("clicker clicked!");
+var clicker = function clicker(data) {
+    console.log("clicker clicked, data:");
+    console.log(data);
 };
 
 // Render the React components - call after state change

@@ -1,9 +1,13 @@
 import * as React from 'react';
 
+import { Banner } from './Banner';
+import { FaceBook } from './FaceBook';
+import { Intro } from './Intro';
 
 export class App extends React.Component {
     
     render() {
+<<<<<<< HEAD
         return( <div>
                     <div className="plantBotApp">
                         <h1 className="banner">Hello from PlantBot!</h1>
@@ -28,6 +32,12 @@ export class App extends React.Component {
                      
                     </div>
                     
+=======
+        return(<div className="plantBotApp">
+                    <Banner />
+                    <FaceBook />
+                    <Intro />
+>>>>>>> ReactHotfix
                 </div>
                 );
     }
