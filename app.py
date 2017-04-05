@@ -6,7 +6,7 @@ from datetime import datetime
 
 
 
-import models
+
 import flask_sqlalchemy
 from sqlalchemy import func
 if os.getenv("CIRCLE_CI_TEST_ENV") != "TRUE":
@@ -23,6 +23,7 @@ app = flask.Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(app)
 print "\n  -->LCYC: Socket.IO inits finished..."
+import models
 
 # Set server state to "COLD"
 serverIsReady = False
