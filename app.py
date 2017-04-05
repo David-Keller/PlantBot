@@ -51,11 +51,6 @@ def connect():
     print "\n  -->SCKT: User connected to Socket.IO manager..."
     socketio.emit("hello", {"message":"Hello from the Python server!"})
     
-    result = models.db.engine.execute("select img from plants")
-    row = result.fetchall()
-    if(len(row) != 0):
-        socketio.emit("img test", {'img': row[0][0]})
-    
     # Optionally, do stuff that breaks CircleCI
     if os.getenv("CIRCLE_CI_TEST_ENV") != "TRUE":
         print "CircleCI environment not found!"
