@@ -7,29 +7,33 @@ import { Socket } from './Socket';
 export class App extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {file: '',imagePreviewUrl: ''};
+        // this.state = {file: '',imagePreviewUrl: ''};
     }
     
-    componentDidMount() {
-        Socket.on('img test', (data) => {
-            this.setState({
-                file:'test',
-                imagePreviewUrl:data['img']
-            });
-            //console.log(data['img'])
-        });
-    }
+    // componentDidMount() {
+    //     Socket.on('img test', (data) => {
+    //         this.setState({
+    //             file:'test',
+    //             imagePreviewUrl:data['img']
+    //         });
+    //         //console.log(data['img'])
+    //     });
+    // }
     
     
     render() {
         
-        let {imagePreviewUrl} = this.state;
-        let $imagePreview = null;
-        if (imagePreviewUrl) {
-            $imagePreview = (<img className="img" src={imagePreviewUrl} />);
-        } else {
-            $imagePreview = (<div className="previewText">Please select an Image for Preview</div>);
-        }
+        // let {imagePreviewUrl} = this.state;
+        // let $imagePreview = null;
+        // if (imagePreviewUrl) {
+        //     $imagePreview = (<img className="img" src={imagePreviewUrl} />);
+        // } else {
+        //     $imagePreview = (<div className="previewText">Please select an Image for Preview</div>);
+        // }
+        //this goes down in the return function
+                // <div className="imgPreview">
+                //     {$imagePreview}
+                // </div>
         
         
         return( <div>
@@ -50,9 +54,7 @@ export class App extends React.Component {
                      <TestButton />
                      <Upload />
                      </div>
-                <div className="imgPreview">
-                    {$imagePreview}
-                </div>
+
                     
                 </div>
                 );

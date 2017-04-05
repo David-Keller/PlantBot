@@ -10,7 +10,7 @@ app.app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://firefly:password@local
 db = flask_sqlalchemy.SQLAlchemy(app.app)
 print "\"Models\" connected and DB import complete!"
 
-# "TextObj" DB Model
+# "PlantDB" DB Model
 class plants(db.Model):
     
     # Auto-Increment Primary Key Integer
@@ -34,7 +34,7 @@ class plants(db.Model):
         self.location = location
     
     def __repr__(self):
-        return "Obj.plantName: %s" % self.plantName
+        return "Plantpost: name: %s, user: %s, date: %s" % (self.name, self.userid, self.date)
         
         
 class users(db.Model):

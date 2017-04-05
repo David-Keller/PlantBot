@@ -13194,40 +13194,37 @@ var App = exports.App = function (_React$Component) {
     function App(props) {
         _classCallCheck(this, App);
 
-        var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
-
-        _this.state = { file: '', imagePreviewUrl: '' };
-        return _this;
+        return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+        // this.state = {file: '',imagePreviewUrl: ''};
     }
 
-    _createClass(App, [{
-        key: 'componentDidMount',
-        value: function componentDidMount() {
-            var _this2 = this;
+    // componentDidMount() {
+    //     Socket.on('img test', (data) => {
+    //         this.setState({
+    //             file:'test',
+    //             imagePreviewUrl:data['img']
+    //         });
+    //         //console.log(data['img'])
+    //     });
+    // }
 
-            _Socket.Socket.on('img test', function (data) {
-                _this2.setState({
-                    file: 'test',
-                    imagePreviewUrl: data['img']
-                });
-                //console.log(data['img'])
-            });
-        }
-    }, {
+
+    _createClass(App, [{
         key: 'render',
         value: function render() {
-            var imagePreviewUrl = this.state.imagePreviewUrl;
 
-            var $imagePreview = null;
-            if (imagePreviewUrl) {
-                $imagePreview = React.createElement('img', { className: 'img', src: imagePreviewUrl });
-            } else {
-                $imagePreview = React.createElement(
-                    'div',
-                    { className: 'previewText' },
-                    'Please select an Image for Preview'
-                );
-            }
+            // let {imagePreviewUrl} = this.state;
+            // let $imagePreview = null;
+            // if (imagePreviewUrl) {
+            //     $imagePreview = (<img className="img" src={imagePreviewUrl} />);
+            // } else {
+            //     $imagePreview = (<div className="previewText">Please select an Image for Preview</div>);
+            // }
+            //this goes down in the return function
+            // <div className="imgPreview">
+            //     {$imagePreview}
+            // </div>
+
 
             return React.createElement(
                 'div',
@@ -13253,11 +13250,6 @@ var App = exports.App = function (_React$Component) {
                     ),
                     React.createElement(_testbutton.TestButton, null),
                     React.createElement(_ImgUpload.Upload, null)
-                ),
-                React.createElement(
-                    'div',
-                    { className: 'imgPreview' },
-                    $imagePreview
                 )
             );
         }
@@ -13357,6 +13349,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+//this is just a testing button and will not end up in final version
+
 var TestButton = exports.TestButton = function (_React$Component) {
     _inherits(TestButton, _React$Component);
 
@@ -13372,8 +13366,9 @@ var TestButton = exports.TestButton = function (_React$Component) {
             event.preventDefault();
             FB.getLoginStatus(function (response) {
                 if (response.status == 'connected') {
-                    _Socket.Socket.emit('user test', {
-                        'facebook_user_token': response.authResponse.accessToken
+                    _Socket.Socket.emit('search', {
+                        'facebook_user_token': response.authResponse.accessToken,
+                        'name': "rose"
                     });
                 }
             });
@@ -30289,7 +30284,7 @@ var Upload = exports.Upload = function (_React$Component) {
 
         var _this = _possibleConstructorReturn(this, (Upload.__proto__ || Object.getPrototypeOf(Upload)).call(this, props));
 
-        _this.state = { file: '', imagePreviewUrl: '', name: '', _location: '' };
+        _this.state = { file: '', imagePreviewUrl: '', name: '', mLocation: '' };
 
         _this._handleSubmit = _this._handleSubmit.bind(_this);
         _this.nameChange = _this.nameChange.bind(_this);
@@ -30300,12 +30295,12 @@ var Upload = exports.Upload = function (_React$Component) {
     _createClass(Upload, [{
         key: 'nameChange',
         value: function nameChange(e) {
-            this.setState({ name: e.target.name });
+            this.setState({ name: e.target.value });
         }
     }, {
         key: 'locationChange',
         value: function locationChange(e) {
-            this.setState({ location: e.target._location });
+            this.setState({ mLocation: e.target.value });
         }
     }, {
         key: '_handleSubmit',
@@ -30313,17 +30308,14 @@ var Upload = exports.Upload = function (_React$Component) {
             e.preventDefault();
 
             //this is just test code right now
-
             var scope = this;
-
             FB.getLoginStatus(function (response) {
                 if (response.status == 'connected') {
                     _Socket.Socket.emit('post', {
                         'facebook_user_token': response.authResponse.accessToken,
                         'img': scope.state.imagePreviewUrl,
-                        'location': "127.2 40.34",
-                        'plantname': "rose"
-
+                        'location': scope.state.mLocation,
+                        'plantname': scope.state.name
                     });
                 }
             });
@@ -30367,10 +30359,25 @@ var Upload = exports.Upload = function (_React$Component) {
             return React.createElement(
                 'div',
                 null,
-                React.createElement('input', { type: 'text', value: this.state.name, onChange: this.nameChange }),
                 React.createElement(
                     'form',
                     null,
+                    React.createElement(
+                        'label',
+                        { 'for': 'name' },
+                        'Enter a name:'
+                    ),
+                    React.createElement('input', { id: 'name', type: 'text', value: this.state.name, onChange: function onChange(e) {
+                            return _this3.nameChange(e);
+                        } }),
+                    React.createElement(
+                        'label',
+                        { 'for': 'location' },
+                        'Enter a location:'
+                    ),
+                    React.createElement('input', { id: 'location', type: 'text', value: this.state.mLocation, onChange: function onChange(e) {
+                            return _this3.locationChange(e);
+                        } }),
                     React.createElement(
                         'div',
                         null,
