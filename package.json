@@ -10,6 +10,8 @@
     "babel-preset-react": "latest",
     "react": "latest",
     "react-dom": "latest",
+    "react-leaflet": "latest",
+    "leaflet": "latest",
     "react-facebook-login": "^3.5.0",
     "socket.io-client": "latest",
     "webpack": "latest"
