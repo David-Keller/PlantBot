@@ -12,13 +12,28 @@ body{
     min-height:550px;
     
     margin:auto;
+    border-radius: 25px;
+    border: 2px solid #73AD21;
     margin-top:5%;
     padding:25px;
     background-color:#eeeeee;
-    
-    
     text-align:center;
 }
+
+ h3 {
+   color: #ea503f;
+   font-family: courier;
+ }
+
+/*for rounded corners on things*/
+#rcorners2 {
+    border-radius: 25px;
+    border: 2px solid #73AD21;
+    padding: 7.5%; 
+    width: 85%;
+    height: 80%; 
+}
+
 .displayTable{
     margin:auto;
     width:80%;
@@ -33,6 +48,7 @@ body{
     border:3px solid #46aa17;
     border-radius: 10px;
     background-color:#cccccc;
+    
 }
 .imgPreview{
   text-align: center;
