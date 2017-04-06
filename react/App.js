@@ -1,8 +1,6 @@
 import * as React from 'react';
-import {TestButton } from './testbutton';
-import {Upload} from './ImgUpload';
+import { Upload } from './Upload';
 import { Socket } from './Socket';
-
 import { Banner } from './Banner';
 import { FaceBook } from './FaceBook';
 import { Intro } from './Intro';
@@ -20,7 +18,6 @@ export class App extends React.Component {
                     <Logo />
                     <FaceBook />
                     <Intro />
-                    <TestButton />
                     <Upload />
                 </div>
                 );
