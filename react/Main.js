@@ -31,3 +31,4 @@ Socket.on('connect', function(){
 Socket.on('hello', function(data){
     console.log(data["message"]);
 });
+Socket.on
