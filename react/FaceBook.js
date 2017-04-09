@@ -1,27 +1,19 @@
+
 import * as React from 'react';
-import FacebookLogin from 'react-facebook-login';
 
-export class FaceBook extends React.Component {
+export class Facebook extends React.Component {
+    
     constructor(props) {
-      super(props);
-    };
-
-    responseFacebook(response){
-        console.log("FB Login says:");
-        console.log(response);
-    };
-    componentClicked(event){
-        console.log("FB Button got clicked!");
-    };
+        super(props);
+    }
     
     render() {
-        return(
-            <FacebookLogin
-                appId="1415349178527947"
-                autoLoad={true}
-                fields="name,email,picture"
-                onClick={this.componentClicked}
-                callback={this.responseFacebook} />
-        );
+        return(<div class="fb-login-button" data-max-rows="1" data-size="xlarge" data-show-faces="true" data-auto-logout-link="true"></div>);
     }
 }
+
+
+
+
+
+

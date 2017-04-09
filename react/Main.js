@@ -8,6 +8,16 @@ import { App } from './App';
 import * as SocketIO from 'socket.io-client';
 var Socket = SocketIO.connect();
 
+// Handle FB login dispatching
+FB.getLoginStatus(function(response) {
+    if (response.status === 'connected') {
+        console.log("Logged in.");
+    }
+    else {
+        console.log("Not logged in.");
+    }
+});
+
 // Function to dispatch new message when "Send" is clicked in React
 var clicker = function(data){
     console.log("clicker clicked, data:");
