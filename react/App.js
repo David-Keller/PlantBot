@@ -16,7 +16,7 @@ export class App extends React.Component {
         return(<div className="plantBotApp">
                     <Banner />
                     <Logo />
-                    <Facebook />
+                    <FaceBook />
                     <Intro />
                     <Upload />
                 </div>

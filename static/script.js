@@ -13211,7 +13211,7 @@ var App = exports.App = function (_React$Component) {
                 { className: 'plantBotApp' },
                 React.createElement(_Banner.Banner, null),
                 React.createElement(_Logo.Logo, null),
-                React.createElement(Facebook, null),
+                React.createElement(_FaceBook.FaceBook, null),
                 React.createElement(_Intro.Intro, null),
                 React.createElement(_Upload.Upload, null)
             );
@@ -13290,7 +13290,7 @@ var Banner = exports.Banner = function (_React$Component) {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.Facebook = undefined;
+exports.FaceBook = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -13306,23 +13306,28 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Facebook = exports.Facebook = function (_React$Component) {
-    _inherits(Facebook, _React$Component);
+var FaceBook = exports.FaceBook = function (_React$Component) {
+    _inherits(FaceBook, _React$Component);
 
-    function Facebook(props) {
-        _classCallCheck(this, Facebook);
+    function FaceBook(props) {
+        _classCallCheck(this, FaceBook);
 
-        return _possibleConstructorReturn(this, (Facebook.__proto__ || Object.getPrototypeOf(Facebook)).call(this, props));
+        var _this = _possibleConstructorReturn(this, (FaceBook.__proto__ || Object.getPrototypeOf(FaceBook)).call(this, props));
+
+        _this.state = {
+            logout: "true"
+        };
+        return _this;
     }
 
-    _createClass(Facebook, [{
+    _createClass(FaceBook, [{
         key: "render",
         value: function render() {
-            return React.createElement("div", { "class": "fb-login-button", "data-max-rows": "1", "data-size": "xlarge", "data-show-faces": "true", "data-auto-logout-link": "true" });
+            return React.createElement("div", { className: "fb-login-button", "data-max-rows": "1", "data-size": "xlarge", "data-show-faces": "true", "data-auto-logout-link": this.state.logout });
         }
     }]);
 
-    return Facebook;
+    return FaceBook;
 }(React.Component);
 
 /***/ }),
