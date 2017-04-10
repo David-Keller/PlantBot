@@ -13211,7 +13211,7 @@ var App = exports.App = function (_React$Component) {
                 { className: 'plantBotApp' },
                 React.createElement(_Banner.Banner, null),
                 React.createElement(_Logo.Logo, null),
-                React.createElement(_FaceBook.FaceBook, null),
+                React.createElement(_FaceBook.FaceBook, { clicker: this.props.clicker }),
                 React.createElement(_Intro.Intro, null),
                 React.createElement(_Upload.Upload, null)
             );
@@ -13315,7 +13315,10 @@ var FaceBook = exports.FaceBook = function (_React$Component) {
         var _this = _possibleConstructorReturn(this, (FaceBook.__proto__ || Object.getPrototypeOf(FaceBook)).call(this, props));
 
         _this.state = {
-            logout: "true"
+            logout: "true",
+            clicker: function clicker() {
+                props.clicker();
+            }
         };
         return _this;
     }
@@ -13323,7 +13326,7 @@ var FaceBook = exports.FaceBook = function (_React$Component) {
     _createClass(FaceBook, [{
         key: "render",
         value: function render() {
-            return React.createElement("div", { className: "fb-login-button", "data-max-rows": "1", "data-size": "xlarge", "data-show-faces": "true", "data-auto-logout-link": this.state.logout });
+            return React.createElement("div", { className: "fb-login-button", "data-max-rows": "1", "data-size": "xlarge", "data-show-faces": "true", "data-auto-logout-link": this.state.logout, onClick: this.state.clicker });
         }
     }]);
 
@@ -13420,7 +13423,7 @@ var Logo = exports.Logo = function (_React$Component) {
             return React.createElement(
                 "div",
                 { className: "logopic" },
-                React.createElement("img", { src: "http://www.herbhedgerow.co.uk/herb/wp-content/uploads/2013/04/Nettle-Leaf.png" })
+                React.createElement("img", { src: "https://icmegreen.files.wordpress.com/2011/04/green-leaf-cut-out.png" })
             );
         }
     }]);
@@ -13454,16 +13457,37 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 var Socket = SocketIO.connect();
 
 // Handle FB login dispatching
+/*global FB*/
 
 
 // Init the SocketIO layer
-FB.getLoginStatus(function (response) {
-    if (response.status === 'connected') {
-        console.log("Logged in.");
-    } else {
-        console.log("Not logged in.");
+window.fbAsyncInit = function () {
+    FB.init({
+        appId: '1415349178527947',
+        xfbml: true,
+        status: true,
+        oauth: true,
+        version: 'v2.8'
+    });
+    FB.getLoginStatus(function (response) {
+        if (response.status === 'connected') {
+            console.log("Logged in.");
+        } else {
+            console.log("Not logged in.");
+        }
+    });
+};
+
+(function (d, s, id) {
+    var js,
+        fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {
+        return;
     }
-});
+    js = d.createElement(s);js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+})(document, 'script', 'facebook-jssdk');
 
 // Function to dispatch new message when "Send" is clicked in React
 var clicker = function clicker(data) {
@@ -13488,7 +13512,6 @@ Socket.on('connect', function () {
 Socket.on('hello', function (data) {
     console.log(data["message"]);
 });
-Socket.on;
 
 /***/ }),
 /* 115 */

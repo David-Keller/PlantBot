@@ -16,7 +16,7 @@ export class App extends React.Component {
         return(<div className="plantBotApp">
                     <Banner />
                     <Logo />
-                    <FaceBook />
+                    <FaceBook clicker={this.props.clicker}/>
                     <Intro />
                     <Upload />
                 </div>

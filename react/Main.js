@@ -9,6 +9,15 @@ import * as SocketIO from 'socket.io-client';
 var Socket = SocketIO.connect();
 
 // Handle FB login dispatching
+/*global FB*/
+window.fbAsyncInit = function() {
+FB.init({
+  appId      : '1415349178527947',
+  xfbml      : true,
+  status     : true,
+  oauth      : true,
+  version    : 'v2.8'
+});
 FB.getLoginStatus(function(response) {
     if (response.status === 'connected') {
         console.log("Logged in.");
@@ -17,6 +26,18 @@ FB.getLoginStatus(function(response) {
         console.log("Not logged in.");
     }
 });
+
+};
+            
+(function(d, s, id){
+ var js, fjs = d.getElementsByTagName(s)[0];
+ if (d.getElementById(id)) {return;}
+ js = d.createElement(s); js.id = id;
+ js.src = "//connect.facebook.net/en_US/sdk.js";
+ fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+
+
 
 // Function to dispatch new message when "Send" is clicked in React
 var clicker = function(data){
@@ -41,4 +62,3 @@ Socket.on('connect', function(){
 Socket.on('hello', function(data){
     console.log(data["message"]);
 });
-Socket.on
