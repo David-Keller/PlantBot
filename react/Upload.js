@@ -1,5 +1,5 @@
 import * as React from 'react';
-
+import { Grid, Navbar, Nav, NavItem, Jumbotron, Button } from 'react-bootstrap';
 import { Socket } from './Socket';
 
 export class Upload extends React.Component {
@@ -66,18 +66,19 @@ export class Upload extends React.Component {
         }
         return(
             <div>
-                
-                <form>
-                <label for="name">Enter a name:</label>
-                <input id = "name" type="text" value={this.state.name} onChange={(e)=>this.nameChange(e)} />
-                <label for="location">Enter a location:</label>
-                <input id = "location" type="text" value={this.state.mLocation} onChange={(e)=>this.locationChange(e)} />
+                <p><h1>Upload an entry to PlantBot</h1></p>
+               <p> <form>
+                <p><label for="name">Enter a name:</label>
+                <input id = "name" type="text" value={this.state.name} onChange={(e)=>this.nameChange(e)} /></p>
+                <p><label for="location">Enter a location:</label>
+                <input id = "location" type="text" value={this.state.mLocation} onChange={(e)=>this.locationChange(e)} /></p>
                   <div>
                     <label for="my-file">Select File:</label>
                     <input id="my-file" name="my-file" type="file" multiple onChange={(e)=>this.ImageChange(e)} />
                   </div>
-                  <button type="submit" onClick={this._handleSubmit}>Upload</button>
+                  <p><Button bsStyle="success" bsSize="large" type="submit" onClick={this._handleSubmit}>Upload</Button></p>
                 </form>
+                </p>
                 <div className="imgPreview">
                     {$imagePreview}
                 </div>

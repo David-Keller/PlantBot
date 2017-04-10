@@ -6,6 +6,9 @@ import { FaceBook } from './FaceBook';
 import { Intro } from './Intro';
 import { Logo } from './Logo';
 
+//import 'bootstrap/dist/css/bootstrap.css';
+import { Grid, Navbar, Nav, NavItem, Jumbotron, Button } from 'react-bootstrap';
+
 export class App extends React.Component {
     constructor(props) {
         super(props);
@@ -14,13 +17,18 @@ export class App extends React.Component {
     
     render() {
         return(<div className="plantBotApp">
-                    <Banner />
-                    <Logo />
-                    <FaceBook />
-                    <Intro />
-                    <Upload />
-                </div>
-                );
+        <Jumbotron>
+          <Grid>
+            <h1><Banner /></h1>
+            <Logo />
+            <FaceBook />
+            <Intro />
+            <p class="label"><Upload /></p>
+          </Grid>
+        </Jumbotron>
+      </div>
+    );
+            
     }
 }
 

@@ -1,8 +1,8 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-
 import { App } from './App';
-
+//import 'bootstrap/dist/css/bootstrap.css';
+//import { Grid, Navbar, Nav, NavItem, Jumbotron, Button } from 'react-bootstrap';
 
 // Init the SocketIO layer
 import * as SocketIO from 'socket.io-client';
