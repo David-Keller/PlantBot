@@ -5,7 +5,7 @@ export class Logo extends React.Component {
     render() {
         return(
             <div className="logopic">
-            <img src="https://icmegreen.files.wordpress.com/2011/04/green-leaf-cut-out.png"></img>
+                <img src="https://www.uidownload.com/files/871/1020/1002/circle-leaf-logo-media-network-online-social-icon.png"></img><br/><br/>
             </div>
             );
     }

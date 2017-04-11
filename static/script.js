@@ -13186,6 +13186,8 @@ var _Intro = __webpack_require__(112);
 
 var _Logo = __webpack_require__(113);
 
+var _Login = __webpack_require__(241);
+
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -13200,21 +13202,34 @@ var App = exports.App = function (_React$Component) {
     function App(props) {
         _classCallCheck(this, App);
 
-        return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+        var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+
+        console.log(props);
+        return _this;
     }
 
     _createClass(App, [{
         key: 'render',
         value: function render() {
-            return React.createElement(
-                'div',
-                { className: 'plantBotApp' },
-                React.createElement(_Banner.Banner, null),
-                React.createElement(_Logo.Logo, null),
-                React.createElement(_FaceBook.FaceBook, { clicker: this.props.clicker }),
-                React.createElement(_Intro.Intro, null),
-                React.createElement(_Upload.Upload, null)
-            );
+            if (this.props.route == "login") {
+                console.log("Going to login screen...");
+                return React.createElement(
+                    'div',
+                    { className: 'plantBotLogin' },
+                    React.createElement(_Logo.Logo, null),
+                    React.createElement(_Login.Login, { clicker: this.props.clicker }),
+                    React.createElement(_Intro.Intro, null)
+                );
+            } else {
+                console.log("Going to application...");
+                return React.createElement(
+                    'div',
+                    { className: 'plantBotApp' },
+                    React.createElement(_Banner.Banner, null),
+                    React.createElement(_Logo.Logo, null),
+                    React.createElement(_FaceBook.FaceBook, null)
+                );
+            }
         }
     }]);
 
@@ -13309,24 +13324,16 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var FaceBook = exports.FaceBook = function (_React$Component) {
     _inherits(FaceBook, _React$Component);
 
-    function FaceBook(props) {
+    function FaceBook() {
         _classCallCheck(this, FaceBook);
 
-        var _this = _possibleConstructorReturn(this, (FaceBook.__proto__ || Object.getPrototypeOf(FaceBook)).call(this, props));
-
-        _this.state = {
-            logout: "true",
-            clicker: function clicker() {
-                props.clicker();
-            }
-        };
-        return _this;
+        return _possibleConstructorReturn(this, (FaceBook.__proto__ || Object.getPrototypeOf(FaceBook)).apply(this, arguments));
     }
 
     _createClass(FaceBook, [{
         key: "render",
         value: function render() {
-            return React.createElement("div", { className: "fb-login-button", "data-max-rows": "1", "data-size": "xlarge", "data-show-faces": "true", "data-auto-logout-link": this.state.logout, onClick: this.state.clicker });
+            return React.createElement("div", { className: "fb-login-button", "data-max-rows": "1", "data-size": "large", "data-show-faces": "false", "data-auto-logout-link": "true" });
         }
     }]);
 
@@ -13423,7 +13430,9 @@ var Logo = exports.Logo = function (_React$Component) {
             return React.createElement(
                 "div",
                 { className: "logopic" },
-                React.createElement("img", { src: "https://icmegreen.files.wordpress.com/2011/04/green-leaf-cut-out.png" })
+                React.createElement("img", { src: "https://www.uidownload.com/files/871/1020/1002/circle-leaf-logo-media-network-online-social-icon.png" }),
+                React.createElement("br", null),
+                React.createElement("br", null)
             );
         }
     }]);
@@ -13461,6 +13470,7 @@ var Socket = SocketIO.connect();
 
 
 // Init the SocketIO layer
+var route = "login";
 window.fbAsyncInit = function () {
     FB.init({
         appId: '1415349178527947',
@@ -13472,9 +13482,12 @@ window.fbAsyncInit = function () {
     FB.getLoginStatus(function (response) {
         if (response.status === 'connected') {
             console.log("Logged in.");
+            route = "app";
         } else {
             console.log("Not logged in.");
+            route = "login";
         }
+        rend();
     });
 };
 
@@ -13493,15 +13506,18 @@ window.fbAsyncInit = function () {
 var clicker = function clicker(data) {
     console.log("clicker clicked, data:");
     console.log(data);
+    if (route == "login") {
+        FB.login();
+    } else {
+        FB.logout();
+    }
 };
 
 // Render the React components - call after state change
 var rend = function rend() {
     // Output React Application with current state
-    ReactDOM.render(React.createElement(_App.App, { clicker: clicker }), document.getElementById('app'));
+    ReactDOM.render(React.createElement(_App.App, { clicker: clicker, route: route }), document.getElementById('app'));
 };
-
-rend();
 
 // When the user connects to the server, let the console know
 Socket.on('connect', function () {
@@ -30527,6 +30543,66 @@ module.exports = __webpack_amd_options__;
 /***/ (function(module, exports) {
 
 /* (ignored) */
+
+/***/ }),
+/* 241 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.Login = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(17);
+
+var React = _interopRequireWildcard(_react);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Login = exports.Login = function (_React$Component) {
+    _inherits(Login, _React$Component);
+
+    function Login(props) {
+        _classCallCheck(this, Login);
+
+        return _possibleConstructorReturn(this, (Login.__proto__ || Object.getPrototypeOf(Login)).call(this, props));
+    }
+
+    _createClass(Login, [{
+        key: "render",
+        value: function render() {
+            return React.createElement(
+                "div",
+                null,
+                React.createElement(
+                    "button",
+                    { onClick: function () {
+                            this.props.clicker("Bingo, Bango!");
+                        }.bind(this) },
+                    "Facebook Login"
+                ),
+                React.createElement(
+                    "h3",
+                    null,
+                    "Please Log In"
+                )
+            );
+        }
+    }]);
+
+    return Login;
+}(React.Component);
 
 /***/ })
 /******/ ]);

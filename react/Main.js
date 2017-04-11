@@ -10,22 +10,26 @@ var Socket = SocketIO.connect();
 
 // Handle FB login dispatching
 /*global FB*/
+var route = "login";
 window.fbAsyncInit = function() {
-FB.init({
-  appId      : '1415349178527947',
-  xfbml      : true,
-  status     : true,
-  oauth      : true,
-  version    : 'v2.8'
-});
-FB.getLoginStatus(function(response) {
-    if (response.status === 'connected') {
-        console.log("Logged in.");
-    }
-    else {
-        console.log("Not logged in.");
-    }
-});
+    FB.init({
+      appId      : '1415349178527947',
+      xfbml      : true,
+      status     : true,
+      oauth      : true,
+      version    : 'v2.8'
+    });
+    FB.getLoginStatus(function(response) {
+        if (response.status === 'connected') {
+            console.log("Logged in.");
+            route = "app";
+        }
+        else {
+            console.log("Not logged in.");
+            route = "login";
+        }
+        rend();
+    });
 
 };
             
@@ -43,15 +47,19 @@ FB.getLoginStatus(function(response) {
 var clicker = function(data){
     console.log("clicker clicked, data:");
     console.log(data);
+    if(route == "login"){
+        FB.login();
+    }
+    else{
+        FB.logout();
+    }
 };
 
 // Render the React components - call after state change
 var rend = function(){
    // Output React Application with current state
-    ReactDOM.render(<App clicker={clicker}/>, document.getElementById('app')); 
+    ReactDOM.render(<App clicker={clicker} route={route}/>, document.getElementById('app')); 
 };
-
-rend();
 
 // When the user connects to the server, let the console know
 Socket.on('connect', function(){
