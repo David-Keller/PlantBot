@@ -22,6 +22,7 @@ app.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(app)
 print "\n  -->LCYC: Socket.IO inits finished..."
 import models
+import setup
 
 # Set server state to "COLD"
 serverIsReady = False

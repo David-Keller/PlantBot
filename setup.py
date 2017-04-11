@@ -1,7 +1,7 @@
 import models
 from datetime import datetime
 
-models.db.engine.execute("drop table plants")
+#models.db.engine.execute("drop table plants")
 models.db.create_all()
 
 
