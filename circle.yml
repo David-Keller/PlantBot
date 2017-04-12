@@ -7,6 +7,7 @@ test:
         - python -m tests/unit_tests
         - python -m tests/socketio_tests
         - python -m tests/integration_tests
+        - npm install webpack -g
         - webpack
 
 dependencies:
