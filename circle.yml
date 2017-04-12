@@ -7,13 +7,17 @@ test:
         - python -m tests/unit_tests
         - python -m tests/socketio_tests
         - python -m tests/integration_tests
+        - webpack
 
 dependencies:
     override:
         - pip install -r requirements.txt
+        - webpack
         
 deployment:
   staging:
     branch: master
+    commands:
+      - webpack
     heroku:
       appname: plantbot
