@@ -13,8 +13,8 @@ var Socket = SocketIO.connect();
 /*global FB*/
 var reload = function(){
     console.log("BLAMO");
-        console.log(route); 
-        window.location.reload();
+    console.log(route); 
+    window.location.reload();
 }
 
 var route = "login";
@@ -52,8 +52,6 @@ window.fbAsyncInit = function() {
  js.src = "//connect.facebook.net/en_US/sdk.js";
  fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
-
-
 
 // Function to dispatch new message when "Send" is clicked in React
 var clicker = function(data){
