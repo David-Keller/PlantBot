@@ -15,9 +15,5 @@ dependencies:
 deployment:
   staging:
     branch: master
-    commands:
-        - npm install
-        - npm install webpack -g
-        - webpack --config ./webpack.config.js
     heroku:
       appname: plantbot
