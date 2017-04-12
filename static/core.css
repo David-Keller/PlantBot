@@ -115,3 +115,8 @@ h2{
     padding:5px;
     list-style:none;
 }
+.loginprompt{
+    margin:auto;
+    text-align:center;
+    width:20%;
+}

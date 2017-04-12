@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
 import { App } from './App';
+import { FaceBook } from './FaceBook';
 
 
 // Init the SocketIO layer
@@ -10,6 +11,12 @@ var Socket = SocketIO.connect();
 
 // Handle FB login dispatching
 /*global FB*/
+var reload = function(){
+    console.log("BLAMO");
+        console.log(route); 
+        window.location.reload();
+}
+
 var route = "login";
 window.fbAsyncInit = function() {
     FB.init({
@@ -30,7 +37,12 @@ window.fbAsyncInit = function() {
         }
         rend();
     });
-
+    FB.Event.subscribe('auth.login', function(response){
+        reload();
+    });
+    FB.Event.subscribe('auth.logout', function(response){
+        reload();
+    });
 };
             
 (function(d, s, id){
@@ -47,12 +59,6 @@ window.fbAsyncInit = function() {
 var clicker = function(data){
     console.log("clicker clicked, data:");
     console.log(data);
-    if(route == "login"){
-        FB.login();
-    }
-    else{
-        FB.logout();
-    }
 };
 
 // Render the React components - call after state change
@@ -60,6 +66,7 @@ var rend = function(){
    // Output React Application with current state
     ReactDOM.render(<App clicker={clicker} route={route}/>, document.getElementById('app')); 
 };
+ReactDOM.render(<FaceBook clicker={clicker}/>, document.getElementById('fb-root-btn')); 
 
 // When the user connects to the server, let the console know
 Socket.on('connect', function(){

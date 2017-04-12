@@ -19,7 +19,6 @@ export class App extends React.Component {
             console.log("Going to login screen...");
             return(<div className="plantBotLogin">
                         <Logo />
-                        <Login clicker={this.props.clicker}/>
                         <Intro />
                     </div>
                     );
@@ -29,7 +28,7 @@ export class App extends React.Component {
             return(<div className="plantBotApp">
                         <Banner />
                         <Logo />
-                        <FaceBook />
+                        <Upload />
                     </div>
                 );
         }
