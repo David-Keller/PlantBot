@@ -11,14 +11,13 @@ test:
 dependencies:
     override:
         - pip install -r requirements.txt
-        - npm install
-        - npm install webpack -g
-        - webpack
         
 deployment:
   staging:
     branch: master
     commands:
-      - webpack
+        - npm install
+        - npm install webpack -g
+        - webpack
     heroku:
       appname: plantbot
