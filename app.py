@@ -10,6 +10,7 @@ from sqlalchemy import func
 if os.getenv("CIRCLE_CI_TEST_ENV") != "TRUE":
     # import stuff that breaks CircleCI (db models?)
     print (os.getenv("CIRCLE_CI_TEST_ENV"))
+    import models
 import json
 import time
 
@@ -21,7 +22,6 @@ app = flask.Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(app)
 print "\n  -->LCYC: Socket.IO inits finished..."
-import models
 
 # Set server state to "COLD"
 serverIsReady = False

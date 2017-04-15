@@ -59,7 +59,7 @@ body{
   border-right: 1px solid gray;
   border-top: 5px solid gray;
   border-bottom: 5px solid gray;
-  
+  margin:auto;
 }
 .img{
     width: 100%;
@@ -114,4 +114,9 @@ h2{
     border-radius:10px;
     padding:5px;
     list-style:none;
+}
+.loginprompt{
+    margin:auto;
+    text-align:center;
+    width:20%;
 }

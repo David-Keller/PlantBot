@@ -12,7 +12,6 @@
     "react-dom": "latest",
     "react-leaflet": "latest",
     "leaflet": "latest",
-    "react-facebook-login": "^3.5.0",
     "socket.io-client": "latest",
     "webpack": "latest"
   },
@@ -20,7 +19,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "./node_modules/.bin/webpack",
-    "watch": "./node_modules/.bin/webpack --watch"
+    "watch": "./node_modules/.bin/webpack --watch",
+    "heroku-postbuild": "npm run build"
   },
   "repository": {
     "type": "git",

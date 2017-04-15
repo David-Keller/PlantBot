@@ -13,6 +13,9 @@ dependencies:
         - pip install -r requirements.txt
         
 deployment:
+  npm:
+    commands:
+        - npm run build
   staging:
     branch: master
     heroku:
