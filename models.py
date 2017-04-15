@@ -42,7 +42,8 @@ class plants(db.Model):
     
     def __repr__(self):
         return "Plantpost: name: %s, user: %s, date: %s" % (self.name, self.userid, self.date)
-        
+    
+    # using the Haversine_formula to calculate distance
     @hybrid_method
     def distance(self, lat,lon):
         lat = math.radians(lat)
@@ -54,7 +55,7 @@ class plants(db.Model):
             math.cos(slat)*math.cos(lat)*
             math.pow(math.sin((slon - lon)/2),2)
             ))
-    
+    # using the Haversine_formula to calculate distance
     @distance.expression
     def distance(cls, lat,lon):
         lat = func.radians(lat)

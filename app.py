@@ -88,7 +88,7 @@ def post(data):
         models.db.session.add(plant)
         models.db.session.commit()
     
-@socketio.on('search')
+@socketio.on('Search')
 def search(data):
     print("search recieved")
     response = requests.get('https://graph.facebook.com/v2.8/me?fields=id%2Cname%2Cpicture&access_token=' + data['facebook_user_token'])
@@ -105,17 +105,14 @@ def search(data):
         print data
         for f in filterlist:
             if((data[f] != "no filter") | (data[f] != "")): #keeping options open
-                requestlist = requestlist.filter( func.lower(getattr(models.plants, f)).like(func.lower(data[f])))
-        lat = data["location"].split(" ", 3)[0]
-        lon = data["location"].split(" ", 3)[1]
-        requestlist = requestlist.filter(models.plants.distance(lat, lon) < data['distance'])
+                requestlist = requestlist.filter( getattr(models.plants, f).ilike(data[f]))
+        if(data['location'] != ""):
+            lat = data['location'].split(" ", 3)[0]
+            lon = data['location'].split(" ", 3)[1]
+            requestlist = requestlist.filter(models.plants.distance(lat, lon) < data['distance'])
         rows = requestlist.all()
-        
         for row in rows:
             print row
-        
-        
-        #location will be special because it will need a hybrid function made
         
     
     
