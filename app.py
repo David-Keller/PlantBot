@@ -5,6 +5,7 @@ import requests
 from datetime import datetime
 
 
+
 import flask_sqlalchemy
 from sqlalchemy import func
 if os.getenv("CIRCLE_CI_TEST_ENV") != "TRUE":
@@ -95,7 +96,8 @@ def search(data):
     result = models.db.engine.execute("select fbid from users where fbid='%s'" % json['id'])
     rows = result.fetchall()
     
-    if(len(rows) == 0): #check if user exists
+    #if(len(rows) == 0): #check if user exists
+    if(0): #check if user exists
         print("error user doesnt exist")
     else:
         requestlist = models.plants.query
@@ -104,6 +106,9 @@ def search(data):
         for f in filterlist:
             if((data[f] != "no filter") | (data[f] != "")): #keeping options open
                 requestlist = requestlist.filter( func.lower(getattr(models.plants, f)).like(func.lower(data[f])))
+        lat = data["location"].split(" ", 3)[0]
+        lon = data["location"].split(" ", 3)[1]
+        requestlist = requestlist.filter(models.plants.distance(lat, lon) < data['distance'])
         rows = requestlist.all()
         
         for row in rows:

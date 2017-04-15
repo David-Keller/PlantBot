@@ -6,6 +6,7 @@ import { FaceBook } from './FaceBook';
 import { Intro } from './Intro';
 import { Logo } from './Logo';
 import { Login } from './Login';
+import { Search } from './Search';
 
 export class App extends React.Component {
     constructor(props) {
@@ -29,6 +30,7 @@ export class App extends React.Component {
                         <Banner />
                         <Logo />
                         <Upload />
+                        <Search />
                     </div>
                 );
         }
