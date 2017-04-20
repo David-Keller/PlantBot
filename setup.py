@@ -18,12 +18,12 @@ models.db.session.commit()
 # models.db.session.commit()
 
 # results = models.db.engine.execute("select * from plants where distance <= 1")
-# request = models.plants.query.filter(models.plants.distance(50,16.22) < 200)
+request = models.plants.query.filter(models.plants.distance(50.9,16) < 2000)
 
 
-request = models.plants.query.filter(models.plants.ilike("%rose%"))
+# request = models.plants.query.filter(models.plants.ilike("%rose%"))
 results = request.all()
 for row in results:
     # print("img: " , row['img'], "date: ", row['date'])
-    print(row)
+    print(row.distance(50.9,16))
 # print requests

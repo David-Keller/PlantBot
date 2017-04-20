@@ -45,11 +45,11 @@ export class Search extends React.Component{
         return(
             <div>
                 <form>
-                    <label for="name">Enter a name:</label>
+                    <label htmlFor="name">Enter a name:</label>
                     <input id = "name" type="text" value={this.state.name} onChange={(e)=>this.nameChange(e)} />
-                    <label for="location">Enter a location:</label>
+                    <label htmlFor="location">Enter a location:</label>
                     <input id = "location" type="text" value={this.state.mlocation} onChange={(e)=>this.locationChange(e)} />
-                    <label for="date"> Enter a date: </label>
+                    <label htmlFor="date"> Enter a date: </label>
                     <input id = "date" type="date" value ={this.state.mdate} onChange = {(e)=>this.dateChange(e)} />
                     <button type="button" onClick={this._handleSubmit}>Search</button>
                 </form>

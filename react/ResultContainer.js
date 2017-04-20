@@ -9,17 +9,19 @@ export class ResultContainer extends React.Component {
     }
     
     componentDidMount(){
+        var scope = this;
         Socket.on('results', function(data){
-            var temp =[];
+            var temp = [];
+            console.log(data);
             for( var i in data){
-                temp.push((<Result data = {i} />));
+                temp.push( (<Result key = {data[i].id}  data = {data[i]} />));
             }
-            this.setState({results: temp});
+
+            scope.setState({results: temp});
         });
     }
     
     render(){
-
         return(
             <div className = "resultContainer">
                 {this.state.results}
