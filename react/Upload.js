@@ -68,12 +68,12 @@ export class Upload extends React.Component {
             <div>
                 
                 <form>
-                <label for="name">Enter a name:</label>
-                <input id = "name" type="text" value={this.state.name} onChange={(e)=>this.nameChange(e)} />
-                <label for="location">Enter a location:</label>
-                <input id = "location" type="text" value={this.state.mLocation} onChange={(e)=>this.locationChange(e)} />
+                <label htmlFor="name">Enter a name:</label>
+                <input id = "name" name= "name" type="text" value={this.state.name} onChange={(e)=>this.nameChange(e)} />
+                <label htmlFor="location">Enter a location:</label>
+                <input id = "location" name = "location" type="text" value={this.state.mLocation} onChange={(e)=>this.locationChange(e)} />
                   <div>
-                    <label for="my-file">Select File:</label>
+                    <label htmlFor="my-file">Select File:</label>
                     <input id="my-file" name="my-file" type="file" multiple onChange={(e)=>this.ImageChange(e)} />
                   </div>
                   <button type="submit" onClick={this._handleSubmit}>Upload</button>
