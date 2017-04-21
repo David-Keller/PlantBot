@@ -6,6 +6,7 @@ import { FaceBook } from './FaceBook';
 import { Intro } from './Intro';
 import { Logo } from './Logo';
 import { Login } from './Login';
+import { Grid, Navbar, Nav, NavItem, Jumbotron, Button } from 'react-bootstrap';
 
 export class App extends React.Component {
     constructor(props) {
@@ -15,6 +16,7 @@ export class App extends React.Component {
     
     
     render() {
+        
         if(this.props.route=="login"){
             console.log("Going to login screen...");
             return(<div className="plantBotLogin">
@@ -26,11 +28,15 @@ export class App extends React.Component {
         else{
             console.log("Going to application...");
             return(<div className="plantBotApp">
+                
+                    <Grid>
                         <Banner />
                         <Logo />
                         <Upload />
-                    </div>
-                );
+                    </Grid>
+                
+            </div>
+            );
         }
     }
 }

@@ -8,8 +8,8 @@ body{
 #app{
     width:85%;
     min-width:700px;
-    height:80%;
-    min-height:550px;
+    height:950px;
+    /*min-height:550px;*/
     
     margin:auto;
     border-radius: 25px;
@@ -20,6 +20,9 @@ body{
     text-align:center;
 }
 
+#center{
+    text-align:center;
+}
  h3 {
    color: #ea503f;
    font-family: courier;
