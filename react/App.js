@@ -6,7 +6,11 @@ import { FaceBook } from './FaceBook';
 import { Intro } from './Intro';
 import { Logo } from './Logo';
 import { Login } from './Login';
+
 import { Grid, Navbar, Nav, NavItem, Jumbotron, Button } from 'react-bootstrap';
+import { Search } from './Search';
+import { Result } from './Results';
+import { ResultContainer } from './ResultContainer';
 
 export class App extends React.Component {
     constructor(props) {
@@ -33,10 +37,13 @@ export class App extends React.Component {
                         <Banner />
                         <Logo />
                         <Upload />
-                    </Grid>
-                
-            </div>
-            );
+
+                        <Search />
+                        <ResultContainer />
+                    </Grid>      
+              </div>
+                );
+
         }
     }
 }

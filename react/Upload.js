@@ -68,15 +68,18 @@ export class Upload extends React.Component {
         return(
             <div>
                 
-               <center> <form>
-                <label for="name">Enter a name:</label>
-                <input id = "name" type="text" value={this.state.name} onChange={(e)=>this.nameChange(e)} /> <br></br>
-                <label for="location">Enter a location:</label>
-                <input id = "location" type="text" value={this.state.mLocation} onChange={(e)=>this.locationChange(e)} /> <br></br>
-                <label for="my-file">Select File:</label>
-                <center><input id="my-file" bsStyle="success" bsSize="large" name="my-file" type="file" multiple onChange={(e)=>this.ImageChange(e)} /></center>
-                <Button bsStyle="success" bsSize="large" type="submit" onClick={this._handleSubmit}>Upload</Button>
-                </form> </center> 
+
+                <form>
+                <label htmlFor="name">Enter a name:</label>
+                <input id = "name" name= "name" type="text" value={this.state.name} onChange={(e)=>this.nameChange(e)} /> <br></br>
+                <label htmlFor="location">Enter a location:</label>
+                <input id = "location" name = "location" type="text" value={this.state.mLocation} onChange={(e)=>this.locationChange(e)} /> <br></br>
+                  <div>
+                    <label htmlFor="my-file">Select File:</label>
+                    <center><input id="my-file" name="my-file" type="file" multiple onChange={(e)=>this.ImageChange(e)} /></center>
+                  </div>
+                  <button bsStyle="success" bsSize="large" type="submit" onClick={this._handleSubmit}>Upload</button>
+                </form>
                 <div className="imgPreview">
                     {$imagePreview}
                 </div>

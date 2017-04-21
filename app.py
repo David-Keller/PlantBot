@@ -1,8 +1,10 @@
 import os
 import flask
 from flask_socketio import SocketIO
+from flask import request
 import requests
 from datetime import datetime
+
 
 
 import flask_sqlalchemy
@@ -48,7 +50,7 @@ def index():
 def connect():
     print "\n  -->SCKT: User connected to Socket.IO manager..."
     socketio.emit("hello", {"message":"Hello from the Python server!"})
-    
+    request
     # Optionally, do stuff that breaks CircleCI
     if os.getenv("CIRCLE_CI_TEST_ENV") != "TRUE":
         print "CircleCI environment not found!"
@@ -87,7 +89,7 @@ def post(data):
         models.db.session.add(plant)
         models.db.session.commit()
     
-@socketio.on('search')
+@socketio.on('Search')
 def search(data):
     print("search recieved")
     response = requests.get('https://graph.facebook.com/v2.8/me?fields=id%2Cname%2Cpicture&access_token=' + data['facebook_user_token'])
@@ -95,24 +97,44 @@ def search(data):
     result = models.db.engine.execute("select fbid from users where fbid='%s'" % json['id'])
     rows = result.fetchall()
     
-    if(len(rows) == 0): #check if user exists
+    #if(len(rows) == 0): #check if user exists
+    if(0): #check if user exists
         print("error user doesnt exist")
     else:
         requestlist = models.plants.query
         filterlist = ['name']
-        print data
         for f in filterlist:
             if((data[f] != "no filter") | (data[f] != "")): #keeping options open
-                requestlist = requestlist.filter( func.lower(getattr(models.plants, f)).like(func.lower(data[f])))
+                requestlist = requestlist.filter( getattr(models.plants, f).ilike(data[f]))
+        if(data['location'] != ""):
+            lat = data['location'].split(" ", 3)[0]
+            lon = data['location'].split(" ", 3)[1]
+            requestlist = requestlist.filter(models.plants.distance(lat, lon) < data['distance'])
         rows = requestlist.all()
-        
+        data = {}
+        counter = 0
         for row in rows:
-            print row
-        
-        
-        #location will be special because it will need a hybrid function made
-        
+            #need to update user by doing a joined search... will do in future
+            data[counter] = {"name": row.name, "date": str(row.date), "id": row.id, "user": row.userid}
+            counter = counter +1
+        socketio.emit("results", data, room = request.sid)
+
+@socketio.on('img request')
+def imgRequest(data):
+    print("request recieved")
+    response = requests.get('https://graph.facebook.com/v2.8/me?fields=id%2Cname%2Cpicture&access_token=' + data['facebook_user_token'])
+    json = response.json()
+    result = models.db.engine.execute("select fbid from users where fbid='%s'" % json['id'])
+    rows = result.fetchall()
     
+    #if(len(rows) == 0): #check if user exists
+    if(0): #check if user exists
+        print("error user doesnt exist")
+    else:
+        imgrequest = models.plants.query.filter(models.plants.id == data['id'])
+        img = imgrequest.all()[0]
+        socketio.emit(data['id'], {"img":img.img}, room = request.sid)
+        print "image sent to: " + str(data['id'])
     
     
     

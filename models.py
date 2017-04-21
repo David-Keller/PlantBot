@@ -1,7 +1,10 @@
 import flask_sqlalchemy, app, os
+from sqlalchemy.ext.hybrid import hybrid_property, hybrid_method
+from sqlalchemy import func
+import math
 
 # REMOTE APPLICATION
-#app.app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
+# app.app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
 
 # CLOUD9 DEVELOPMENT ENVIRONMENT
 app.app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://firefly:password@localhost/postgres'
@@ -21,6 +24,8 @@ class plants(db.Model):
     userid = db.Column(db.BigInteger)
     name = db.Column(db.String(60))
     location = db.Column(db.String(60))
+    latitude = db.Column(db.Float)
+    longitude = db.Column(db.Float)
     date = db.Column(db.DateTime)
     ifedit = db.Column(db.String(20))
     editdate = db.Column(db.String(60))
@@ -32,9 +37,37 @@ class plants(db.Model):
         self.date = date
         self.name = name
         self.location = location
+        self.latitude = location.split(' ', 2)[0]
+        self.longitude = location.split(' ', 2)[1]
     
     def __repr__(self):
         return "Plantpost: name: %s, user: %s, date: %s" % (self.name, self.userid, self.date)
+    
+    # using the Haversine_formula to calculate distance
+    @hybrid_method
+    def distance(self, lat,lon):
+        lat = math.radians(lat)
+        lon = math.radians(lon)
+        slat = math.radians(self.latitude)
+        slon = math.radians(self.longitude)
+        return 12742 * math.asin(math.sqrt(
+            math.pow(math.sin((slat - lat)/2),2) + 
+            math.cos(slat)*math.cos(lat)*
+            math.pow(math.sin((slon - lon)/2),2)
+            ))
+    # using the Haversine_formula to calculate distance
+    @distance.expression
+    def distance(cls, lat,lon):
+        lat = func.radians(lat)
+        lon = func.radians(lon)
+        slat = func.radians(cls.latitude)
+        slon = func.radians(cls.longitude)
+        return 12742 * func.asin(func.sqrt(
+            func.pow(func.sin((slat - lat)/2),2) + 
+            func.cos(slat)*func.cos(lat)*
+            func.pow(func.sin((slon - lon)/2),2)
+            ))
+    
         
         
 class users(db.Model):
@@ -51,4 +84,5 @@ class users(db.Model):
         
     def __repr__(self):
         return "Obj.user: %s, %s" % self.username, self.userid
-        
+    
+
