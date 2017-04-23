@@ -8,7 +8,7 @@ import { Logo } from './Logo';
 import { Login } from './Login';
 import { Personal } from './Personal';
 
-import { Grid, Navbar, Nav, NavItem, Jumbotron, Button, Col } from 'react-bootstrap';
+import { Grid, Navbar, Nav, NavItem, Jumbotron, Button, Col, Row } from 'react-bootstrap';
 import { Search } from './Search';
 import { ResultContainer } from './ResultContainer';
 
@@ -34,32 +34,31 @@ export class App extends React.Component {
             return(<div className="plantBotApp">
                 
                     <Grid>
-                    //TOP SEARCH BAR
-                        // LOGO, 25%W
+                    {/* SEARCH BAR */}
+                    <Row>
                         <Col xs={12} md={3}>
                             <Logo />
                         </Col>
-                        // SEARCH, 50%W
                         <Col xs={12} md={6}>
                             <Search />
                         </Col>
-                        // APPNAME, 25%W
                         <Col xs={12} md={3}>
                             <h4>PlantBot</h4>
                         </Col>
-                    // APPLICATION AREA
-                        // USER, 33%W
-                        <Col xs={12} md={4}>
-                            //<Personal/>
+                    </Row>
+                        
+                    {/* APLICATION */}
+                    <Row>
+                        <Col xs={12} md={3}>
+                            <Personal/>
                         </Col>
-                        // RESULTS, 33%W
-                        <Col xs={12} md={4}>
+                        <Col xs={12} md={6}>
                             <ResultContainer />
                         </Col>
-                        // UPLOAD, 33%W
-                        <Col xs={12} md={4}>
+                        <Col xs={12} md={3}>
                             <Upload />
                         </Col>
+                    </Row>
 
                     </Grid>      
               </div>

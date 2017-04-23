@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet'
 
 export class Leaf extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     //36.6844° N, 121.8022° W = marina, Ca
     this.state = {
       lat: 36.6844,
