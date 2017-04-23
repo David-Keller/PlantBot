@@ -1,6 +1,9 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
+// 'bootstrap/dist/css/bootstrap.css';
+//import { Grid, Navbar, Nav, NavItem, Jumbotron, Button } from 'react-bootstrap';
+
 import { App } from './App';
 import { FaceBook } from './FaceBook';
 

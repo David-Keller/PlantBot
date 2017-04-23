@@ -1,6 +1,7 @@
 import * as React from 'react';
-
+import { Grid, Navbar, Nav, NavItem, Jumbotron, Button } from 'react-bootstrap';
 import { Socket } from './Socket';
+
 
 export class Upload extends React.Component {
     constructor(props) {
@@ -67,16 +68,17 @@ export class Upload extends React.Component {
         return(
             <div>
                 
+
                 <form>
                 <label htmlFor="name">Enter a name:</label>
-                <input id = "name" name= "name" type="text" value={this.state.name} onChange={(e)=>this.nameChange(e)} />
+                <input id = "name" name= "name" type="text" value={this.state.name} onChange={(e)=>this.nameChange(e)} /> <br></br>
                 <label htmlFor="location">Enter a location:</label>
-                <input id = "location" name = "location" type="text" value={this.state.mLocation} onChange={(e)=>this.locationChange(e)} />
+                <input id = "location" name = "location" type="text" value={this.state.mLocation} onChange={(e)=>this.locationChange(e)} /> <br></br>
                   <div>
                     <label htmlFor="my-file">Select File:</label>
-                    <input id="my-file" name="my-file" type="file" multiple onChange={(e)=>this.ImageChange(e)} />
+                    <center><input id="my-file" name="my-file" type="file" multiple onChange={(e)=>this.ImageChange(e)} /></center>
                   </div>
-                  <button type="submit" onClick={this._handleSubmit}>Upload</button>
+                  <button bsStyle="success" bsSize="large" type="submit" onClick={this._handleSubmit}>Upload</button>
                 </form>
                 <div className="imgPreview">
                     {$imagePreview}
