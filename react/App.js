@@ -7,7 +7,7 @@ import { Intro } from './Intro';
 import { Logo } from './Logo';
 import { Login } from './Login';
 
-import { Grid, Navbar, Nav, NavItem, Jumbotron, Button } from 'react-bootstrap';
+import { Grid, Navbar, Nav, NavItem, Jumbotron, Button, Col } from 'react-bootstrap';
 import { Search } from './Search';
 import { Result } from './Results';
 import { ResultContainer } from './ResultContainer';
@@ -34,12 +34,33 @@ export class App extends React.Component {
             return(<div className="plantBotApp">
                 
                     <Grid>
-                        <Banner />
-                        <Logo />
-                        <Upload />
+                    //TOP SEARCH BAR
+                        // LOGO, 25%W
+                        <Col xs={12} md={3}>
+                            <Logo />
+                        </Col>
+                        // SEARCH, 50%W
+                        <Col xs={12} md={6}>
+                            <Search />
+                        </Col>
+                        // APPNAME, 25%W
+                        <Col xs={12} md={3}>
+                            <h4>PlantBot</h4>
+                        </Col>
+                    // APPLICATION AREA
+                        // USER, 33%W
+                        <Col xs={12} md={4}>
+                            //<Personal/>
+                        </Col>
+                        // RESULTS, 33%W
+                        <Col xs={12} md={4}>
+                            <ResultContainer />
+                        </Col>
+                        // UPLOAD, 33%W
+                        <Col xs={12} md={4}>
+                            <Upload />
+                        </Col>
 
-                        <Search />
-                        <ResultContainer />
                     </Grid>      
               </div>
                 );
