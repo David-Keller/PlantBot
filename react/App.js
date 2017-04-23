@@ -6,6 +6,7 @@ import { FaceBook } from './FaceBook';
 import { Intro } from './Intro';
 import { Logo } from './Logo';
 import { Login } from './Login';
+import { Leaf } from './Leaf.js';
 
 export class App extends React.Component {
     constructor(props) {
@@ -28,6 +29,7 @@ export class App extends React.Component {
             return(<div className="plantBotApp">
                         <Banner />
                         <Logo />
+                        <Leaf />
                         <Upload />
                     </div>
                 );
