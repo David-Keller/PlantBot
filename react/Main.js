@@ -7,6 +7,8 @@ import * as ReactDOM from 'react-dom';
 import { App } from './App';
 import { FaceBook } from './FaceBook';
 
+var potato = require("./Potato.js");
+
 
 // Init the SocketIO layer
 import * as SocketIO from 'socket.io-client';
@@ -72,6 +74,7 @@ ReactDOM.render(<FaceBook clicker={clicker}/>, document.getElementById('fb-root-
 // When the user connects to the server, let the console know
 Socket.on('connect', function(){
     console.log("Client Connected!");
+    potato.print();
 });
 
 // When the user gets a hello message, print it to console
