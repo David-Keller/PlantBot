@@ -16,16 +16,7 @@ export class Upload extends React.Component {
 
     _handleSubmit(e) {
         e.preventDefault();
-        //this is just test code right now
-        let scope = this;
-        console.log("IMAG:");
-        console.log(scope.state.imageBase64);
-        console.log("LOCT:");
-        console.log(document.getElementsByName("location")[0].value);
-        console.log("NAME:");
-        console.log(document.getElementById("objname").value);
-        // TODO - Feed back into Main.js for socket work
-        let data = {base64:scope.state.imageBase64, name:document.getElementById("objname").value, location:document.getElementsByName("location")[0].value};
+        let data = {base64:this.state.imageBase64, name:document.getElementById("objname").value, location:document.getElementsByName("location")[0].value};
         this.state.submit(data);
     }
     

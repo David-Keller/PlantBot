@@ -38,10 +38,9 @@ window.fbAsyncInit = function() {
             console.log("Logged in.");
             route = "app";
             console.log(response);
-            console.log(response.authResponse.accessToken);
             user.authToken = response.authResponse.accessToken;
-            console.log(response.authResponse.userID);
             user.ID = response.authResponse.userID;
+            console.log("User:");
             console.log(user);
             Socket.emit("user test", {ID:user.ID, authToken:user.authToken});
         }
