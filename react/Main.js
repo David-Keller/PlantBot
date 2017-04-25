@@ -101,7 +101,7 @@ Socket.on('hello', function(data){
 });
 
 // When the user gets a hello message, print it to console
-Socket.on('user data', function(data){
+Socket.on('oAuth', function(data){
     console.log("oAuth response from server:");
     console.log(data);
     user.name = data['name'];

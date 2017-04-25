@@ -59,7 +59,7 @@ def user_test(data):
     response = requests.get('https://graph.facebook.com/v2.8/me?fields=id%2Cname%2Cpicture&access_token=' + data['authToken'])
     json = response.json()
     print json
-    emit("user info", {'userImgURL':json['picture']['data']['url'], 'userName':json['name']})
+    socketio.emit('oAuth', {'userImgURL':json['picture']['data']['url'], 'userName':json['name']})
     #check if user already exists
     #result = models.db.engine.execute("select fbid as fbid from users where fbid='%s'" % json['id'])
     #rows = result.fetchall()
