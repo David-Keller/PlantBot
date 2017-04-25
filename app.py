@@ -14,9 +14,12 @@ app.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(app)
 print "\n  -->LCYC: Socket.IO inits finished..."
 
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
+db = flask_sqlalchemy.SQLAlchemy(app)
+
 if os.getenv("CIRCLE_CI_TEST_ENV") != "TRUE":
     # import stuff that breaks CircleCI (db models?)
-    print (os.getenv("CIRCLE_CI_TEST_ENV"))
+    print ("Test environment not found...")
     import models
 
 # Imports are finished
