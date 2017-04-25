@@ -10,7 +10,7 @@ else:
 
 # Setup connection to DB system
 db = flask_sqlalchemy.SQLAlchemy(app.app)
-db.init_app()
+db.init_app(app.app)
 print "\"Models\" connected and DB import complete!"
 
 # "PlantDB" DB Model
