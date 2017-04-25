@@ -4,24 +4,24 @@ from flask_socketio import SocketIO
 from flask import request
 import requests
 from datetime import datetime
-
 import flask_sqlalchemy
 from sqlalchemy import func
-if os.getenv("CIRCLE_CI_TEST_ENV") != "TRUE":
-    # import stuff that breaks CircleCI (db models?)
-    print (os.getenv("CIRCLE_CI_TEST_ENV"))
-    import models
 import json
 import time
-
-# Imports are finished
-print "\n  -->LCYC: Imports finished..."
 
 # Set some basic app connections
 app = flask.Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(app)
 print "\n  -->LCYC: Socket.IO inits finished..."
+
+if os.getenv("CIRCLE_CI_TEST_ENV") != "TRUE":
+    # import stuff that breaks CircleCI (db models?)
+    print (os.getenv("CIRCLE_CI_TEST_ENV"))
+    import models
+
+# Imports are finished
+print "\n  -->LCYC: Imports finished..."
 
 # Set server state to "COLD"
 serverIsReady = False
