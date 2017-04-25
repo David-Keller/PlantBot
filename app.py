@@ -61,18 +61,18 @@ def user_test(data):
     print json
     socketio.emit('oAuth', {'userImgURL':json['picture']['data']['url'], 'userName':json['name']})
     #check if user already exists
-    #result = models.db.engine.execute("select fbid as fbid from users where fbid='%s'" % json['id'])
-    #rows = result.fetchall()
-    #print rows
-    #if(len(rows) == 0):
-    #    user = models.users(data['authToken'])
-    #    user.username = json['name']
-    #    user.fbid = json['id']
-    #    models.db.session.add(user)
-    #    models.db.session.commit()
-    #    print("user created")
-    #else:
-    #    print("user already exists")
+    result = models.db.engine.execute("select fbid as fbid from users where fbid='%s'" % json['id'])
+    rows = result.fetchall()
+    print rows
+    if(len(rows) == 0):
+        user = models.users(data['authToken'])
+        user.username = json['name']
+        user.fbid = json['id']
+        models.db.session.add(user)
+        models.db.session.commit()
+        print("user created")
+    else:
+        print("user already exists")
         
 
 @socketio.on('post')
