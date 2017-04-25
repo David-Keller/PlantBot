@@ -104,7 +104,7 @@ Socket.on('hello', function(data){
 Socket.on('oAuth', function(data){
     console.log("oAuth response from server:");
     console.log(data);
-    user.name = data['name'];
-    user.url = data['userURL'];
+    user.name = data['userName'];
+    user.url = data['userImgURL'];
     rend();
 });
