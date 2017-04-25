@@ -18,7 +18,7 @@ import time
 print "\n  -->LCYC: Imports finished..."
 
 # Set some basic app connections
-app = flask.Flask(__name__)
+app = flask.Flask("plantbot")
 app.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(app)
 print "\n  -->LCYC: Socket.IO inits finished..."
@@ -136,10 +136,7 @@ def imgRequest(data):
         img = imgrequest.all()[0]
         socketio.emit(data['id'], {"img":img.img}, room = request.sid)
         print "image sent to: " + str(data['id'])
-    
-    
-    
- 
+
 # Run the application
 if __name__ == '__main__':
     print "\n\n  ----- APPLICATION RUNNING -----\n"

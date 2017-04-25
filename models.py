@@ -3,7 +3,6 @@ from sqlalchemy.ext.hybrid import hybrid_property, hybrid_method
 from sqlalchemy import func
 import math
 
-
 app.app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
 
 # Setup connection to DB system
