@@ -23,7 +23,7 @@ var reload = function(){
 }
 
 var route = "login";
-var user = {authToken:"", ID:""};
+var user = {authToken:"", ID:"", url:"", name:""};
 var posts = {};
 window.fbAsyncInit = function() {
     FB.init({
@@ -104,4 +104,7 @@ Socket.on('hello', function(data){
 Socket.on('user data', function(data){
     console.log("oAuth response from server:");
     console.log(data);
+    user.name = data['name'];
+    user.url = data['userURL'];
+    rend();
 });

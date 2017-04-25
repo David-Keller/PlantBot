@@ -50,7 +50,7 @@ export class App extends React.Component {
                     {/* APLICATION */}
                     <Row>
                         <Col xs={12} md={3}>
-                            <Personal/>
+                            <Personal user={this.props.user}/>
                         </Col>
                         <Col xs={12} md={6}>
                             <ResultContainer />
