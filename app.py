@@ -122,7 +122,7 @@ def search(data):
             #need to update user by doing a joined search... will do in future
             data[counter] = {"name": row.name, "date": str(row.date), "id": row.id, "user": row.userid}
             counter = counter +1
-        socketio.emit("results", data, room = request.sid)
+        socketio.emit("results", data)
 
 @socketio.on('img request')
 def imgRequest(data):

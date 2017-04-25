@@ -24,7 +24,7 @@ var reload = function(){
 
 var route = "login";
 var user = {authToken:"", ID:"", url:"", name:""};
-var posts = {};
+var posts = [];
 window.fbAsyncInit = function() {
     FB.init({
       appId      : '1415349178527947',
@@ -106,5 +106,14 @@ Socket.on('oAuth', function(data){
     console.log(data);
     user.name = data['userName'];
     user.url = data['userImgURL'];
+    rend();
+});
+
+Socket.on('results', function(data){
+    var posts = [];
+    console.log(data);
+    for( var i in data){
+        posts.push(data[i]);
+    }
     rend();
 });

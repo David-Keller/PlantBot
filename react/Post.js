@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Socket } from './Socket';
 
-export class Result extends React.Component {
+export class Post extends React.Component {
     constructor(props){
         super(props);
         let data = props.data
@@ -14,26 +14,6 @@ export class Result extends React.Component {
                     key: data.id
         };
     }
-    
-    componentDidMount(){
-        var scope = this;
-        Socket.on(this.state.id, function(data){
-            scope.setState({img: data['img']});
-            console.log("img recived");
-        });
-        FB.getLoginStatus((response) => {
-            if (response.status == 'connected') {
-                console.log("img request");
-                Socket.emit('img request', {
-                    'facebook_user_token':
-                        response.authResponse.accessToken,
-                        'id': scope.state.id
-                });
-            }
-        });
-    }
-    
-    
     
     render(){
         let name = this.state.name;

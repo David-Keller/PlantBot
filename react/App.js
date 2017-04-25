@@ -53,7 +53,7 @@ export class App extends React.Component {
                             <Personal user={this.props.user}/>
                         </Col>
                         <Col xs={12} md={6}>
-                            <ResultContainer />
+                            <ResultContainer posts={this.props.posts} />
                         </Col>
                         <Col xs={12} md={3}>
                             <Upload  upload={this.props.upload}/>

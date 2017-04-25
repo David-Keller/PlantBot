@@ -6,6 +6,7 @@ export class Leaf extends Component {
     super(props);
     //36.6844° N, 121.8022° W = marina, Ca
     this.state = {
+      posts:[{lat:x, lon:y},{},{}]
       lat: 36.6844,
       lng: -121.8022,
       zoom: 12,
