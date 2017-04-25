@@ -145,8 +145,8 @@ def imgRequest(data):
 if __name__ == '__main__':
     print "\n\n  ----- APPLICATION RUNNING -----\n"
     print "\n  -->SCKT: Socket.IO manager initializing into application..."
-    models.db.init_app(app);
-    models.db.create_all();
+    db.init_app(app);
+    db.create_all();
     socketio.run(
         app,
         host=os.getenv('IP', '0.0.0.0'),
