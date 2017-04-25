@@ -3,14 +3,9 @@ from sqlalchemy.ext.hybrid import hybrid_property, hybrid_method
 from sqlalchemy import func
 import math
 
-if os.getenv("CIRCLE_CI_TEST_ENV") != "TRUE":
-    app.app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
-else:
-    app.app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://admin:pass@localhost/plantbot'
-
-# Setup connection to DB system
+app.app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
+#app.app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://admin:pass@localhost/plantbot'
 db = flask_sqlalchemy.SQLAlchemy(app.app)
-db.init_app(app.app)
 print "\"Models\" connected and DB import complete!"
 
 # "PlantDB" DB Model
