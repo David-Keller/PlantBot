@@ -18,7 +18,7 @@ import time
 print "\n  -->LCYC: Imports finished..."
 
 # Set some basic app connections
-app = flask.Flask("plantbot")
+app = flask.Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(app)
 print "\n  -->LCYC: Socket.IO inits finished..."

@@ -6,8 +6,7 @@ import math
 app.app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
 
 # Setup connection to DB system
-db = flask_sqlalchemy.SQLAlchemy()
-db.init_app(app.app)
+db = flask_sqlalchemy.SQLAlchemy(app.app)
 print "\"Models\" connected and DB import complete!"
 
 # "PlantDB" DB Model
