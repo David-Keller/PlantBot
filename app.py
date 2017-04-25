@@ -56,18 +56,20 @@ def connect():
 @socketio.on('user test')
 def user_test(data):
     print("recived fb info")
-    response = requests.get('https://graph.facebook.com/v2.8/me?fields=id%2Cname%2Cpicture&access_token=' + data['facebook_user_token'])
+    response = requests.get('https://graph.facebook.com/v2.8/me?fields=id%2Cname%2Cpicture&access_token=' + data['authToken'])
     json = response.json()
+    print json
     #check if user already exists
     result = models.db.engine.execute("select fbid as fbid from users where fbid='%s'" % json['id'])
     rows = result.fetchall()
     print rows
     if(len(rows) == 0):
-        user = models.users(data['facebook_user_token'])
+        user = models.users(data['authToken'])
         user.username = json['name']
         user.fbid = json['id']
         models.db.session.add(user)
         models.db.session.commit()
+        print("user created")
     else:
         print("user already exists")
         
@@ -75,13 +77,14 @@ def user_test(data):
 @socketio.on('post')
 def post(data):
     print("post recieved")
-    response = requests.get('https://graph.facebook.com/v2.8/me?fields=id%2Cname%2Cpicture&access_token=' + data['facebook_user_token'])
+    response = requests.get('https://graph.facebook.com/v2.8/me?fields=id%2Cname%2Cpicture&access_token=' + data['authToken'])
     json = response.json()
     result = models.db.engine.execute("select fbid from users where fbid='%s'" % json['id'])
     rows = result.fetchall()
     
     if(len(rows) == 0): #check if user exists
         print("error user doesnt exist")
+        #create user
     else:
         plant = models.plants(data['img'], rows[0][0], data['plantname'], data['location'], datetime.now())
         models.db.session.add(plant)

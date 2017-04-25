@@ -40,7 +40,7 @@ export class App extends React.Component {
                             <Logo />
                         </Col>
                         <Col xs={12} md={6}>
-                            <Search />
+                            <Search/>
                         </Col>
                         <Col xs={12} md={3}>
                             <h4>PlantBot</h4>
@@ -56,7 +56,7 @@ export class App extends React.Component {
                             <ResultContainer />
                         </Col>
                         <Col xs={12} md={3}>
-                            <Upload />
+                            <Upload  upload={this.props.upload}/>
                         </Col>
                     </Row>
 

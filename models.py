@@ -7,7 +7,7 @@ import math
 # app.app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
 
 # CLOUD9 DEVELOPMENT ENVIRONMENT
-app.app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://firefly:password@localhost/postgres'
+app.app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://admin:pass@localhost/plantbot'
 
 # Setup connection to DB system
 db = flask_sqlalchemy.SQLAlchemy(app.app)

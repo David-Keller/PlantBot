@@ -6,7 +6,8 @@ export class Upload extends React.Component {
         super(props);
         this.state = {
             file: '',
-            imagePreviewUrl: ''
+            imagePreviewUrl: '',
+            submit:props.upload
         };
 
      this._handleSubmit = this._handleSubmit.bind(this);
@@ -24,6 +25,8 @@ export class Upload extends React.Component {
         console.log("NAME:");
         console.log(document.getElementById("objname").value);
         // TODO - Feed back into Main.js for socket work
+        let data = {base64:scope.state.imageBase64, name:document.getElementById("objname").value, location:document.getElementsByName("location")[0].value};
+        this.state.submit(data);
     }
     
     ImageChange(e){
