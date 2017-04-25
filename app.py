@@ -59,20 +59,20 @@ def user_test(data):
     response = requests.get('https://graph.facebook.com/v2.8/me?fields=id%2Cname%2Cpicture&access_token=' + data['authToken'])
     json = response.json()
     print json
-    #socketio.emit("user info", {'userImgURL':json['picture']['data']['url'], 'userName':json['name']})
+    socketio.emit("user info", {'userImgURL':json['picture']['data']['url'], 'userName':json['name']})
     #check if user already exists
-    result = models.db.engine.execute("select fbid as fbid from users where fbid='%s'" % json['id'])
-    rows = result.fetchall()
-    print rows
-    if(len(rows) == 0):
-        user = models.users(data['authToken'])
-        user.username = json['name']
-        user.fbid = json['id']
-        models.db.session.add(user)
-        models.db.session.commit()
-        print("user created")
-    else:
-        print("user already exists")
+    #result = models.db.engine.execute("select fbid as fbid from users where fbid='%s'" % json['id'])
+    #rows = result.fetchall()
+    #print rows
+    #if(len(rows) == 0):
+    #    user = models.users(data['authToken'])
+    #    user.username = json['name']
+    #    user.fbid = json['id']
+    #    models.db.session.add(user)
+    #    models.db.session.commit()
+    #    print("user created")
+    #else:
+    #    print("user already exists")
         
 
 @socketio.on('post')
