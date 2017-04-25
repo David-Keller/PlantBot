@@ -5,7 +5,6 @@ from flask import request
 import requests
 from datetime import datetime
 import flask_sqlalchemy
-from sqlalchemy import func
 import json
 import time
 
