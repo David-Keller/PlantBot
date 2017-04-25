@@ -1,7 +1,7 @@
 import flask_sqlalchemy, app, os
 import math
 
-app.app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
+app.app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("HEROKU_POSTGRESQL_JADE_URL")
 #app.app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://admin:pass@localhost/plantbot'
 db = flask_sqlalchemy.SQLAlchemy(app.app)
 print "\"Models\" connected and DB import complete!"
