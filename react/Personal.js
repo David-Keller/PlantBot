@@ -9,7 +9,7 @@ export class Personal extends React.Component {
             
             <br/>
             
-            <h4>Hurr Durr I'm Bob!</h4>
+            <h3>Hurr Durr I'm Bob!</h3>
             </div>
             );
     }

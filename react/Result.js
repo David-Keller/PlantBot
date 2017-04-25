@@ -45,6 +45,7 @@ export class Result extends React.Component {
         }
         return(
             <div className = "result">
+                <h3><strong>Search Results</strong></h3>
                 <h3> {name} {user} {date} </h3>
                 {img}
             </div>

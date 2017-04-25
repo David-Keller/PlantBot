@@ -8,7 +8,7 @@ import { Logo } from './Logo';
 import { Login } from './Login';
 import { Personal } from './Personal';
 
-import { Grid, Navbar, Nav, NavItem, Jumbotron, Button, Col, Row } from 'react-bootstrap';
+import { Grid, Navbar, Nav, NavItem, Jumbotron, Button, Col, Row, fonts, h4 } from 'react-bootstrap';
 import { Search } from './Search';
 import { ResultContainer } from './ResultContainer';
 
@@ -35,27 +35,28 @@ export class App extends React.Component {
                 
                     <Grid>
                     {/* SEARCH BAR */}
-                    <Row>
-                        <Col xs={12} md={3}>
-                            <Logo />
+                    <Row>  
+                        <Col xs={10} md={2}>
+                            <Personal/>
                         </Col>
-                        <Col xs={12} md={6}>
+                        <Col xs={10} md={6}>
                             <Search />
                         </Col>
-                        <Col xs={12} md={3}>
-                            <h4>PlantBot</h4>
+                        <Col xs={10} md={2}>
+                            <h4><strong>PlantBot</strong></h4>
+                            <Logo />
                         </Col>
                     </Row>
                         
                     {/* APLICATION */}
                     <Row>
-                        <Col xs={12} md={3}>
-                            <Personal/>
+                        <Col xs={10} md={2}>
+                            
                         </Col>
-                        <Col xs={12} md={6}>
+                        <Col xs={10} md={6}>
                             <ResultContainer />
                         </Col>
-                        <Col xs={12} md={3}>
+                        <Col xs={10} md={2}>
                             <Upload />
                         </Col>
                     </Row>
