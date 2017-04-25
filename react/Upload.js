@@ -10,6 +10,7 @@ export class Upload extends React.Component {
         };
 
      this._handleSubmit = this._handleSubmit.bind(this);
+     this.ImageChange = this.ImageChange.bind(this);
     }
 
     _handleSubmit(e) {
@@ -59,7 +60,7 @@ export class Upload extends React.Component {
 
     render(){
         return(
-            <div style={{"text-align":"left"}}>
+            <div style={{"textAlign":"left"}}>
                 <Row>
                 <label htmlFor="objname">Enter a name:</label>
                 <input id="objname" name="objname" type="text"/>
