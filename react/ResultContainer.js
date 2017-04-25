@@ -10,9 +10,10 @@ export class ResultContainer extends React.Component {
     render(){
         return(
             <div className = "postContainer">
-                {this.state.data.map(function(item, i){
+                {this.props.data.map(function(item, i){
                   console.log('Post rendering...');
-                  console.log()
+                  console.log("Key:" + i);
+                  console.log(item);
                   return <Post key={i}  data={item} />
                 })}
             </div>
