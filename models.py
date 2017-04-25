@@ -1,8 +1,6 @@
 import flask_sqlalchemy, app, os
 import math
 
-app.app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
-db = flask_sqlalchemy.SQLAlchemy(app.app)
 print "\"Models\" connected and DB import complete!"
 
 # "PlantDB" DB Model
@@ -33,6 +31,6 @@ class users(db.Model):
         self.facebook = facebook
         
     def __repr__(self):
-        return "Obj.user: %s, %s" % self.username, self.userid
+        return "Obj.user: %s, %s" % self.username, str(self.userid)
     
 
