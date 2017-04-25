@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Result } from './Result';
+import { Result } from './Results';
 import { Socket } from './Socket';
 
 export class ResultContainer extends React.Component {

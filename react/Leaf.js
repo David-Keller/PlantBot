@@ -6,10 +6,18 @@ export class Leaf extends Component {
     super(props);
     //36.6844° N, 121.8022° W = marina, Ca
     this.state = {
-      lat: 36.6844,
-      lng: -121.8022,
-      zoom: 12,
+      latlons:props.latlons,
+      results: []
+      
     };
+  }
+  componentDidMount(){
+    var scope = this;
+    var temp = [];
+    for( var i in scope.latlons){
+        temp.push( (<Marker position = {i} />));
+    }
+    scope.setState({results: temp});
   }
 
   render () {
