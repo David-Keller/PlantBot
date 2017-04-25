@@ -23,6 +23,8 @@ var reload = function(){
 }
 
 var route = "login";
+var user = {authToken:"", ID:""};
+var posts = {};
 window.fbAsyncInit = function() {
     FB.init({
       appId      : '1415349178527947',
@@ -35,6 +37,12 @@ window.fbAsyncInit = function() {
         if (response.status === 'connected') {
             console.log("Logged in.");
             route = "app";
+            console.log(response);
+            user.authToken = response.authResponse.accessToken;
+            user.ID = response.authResponse.userID;
+            console.log("User:");
+            console.log(user);
+            Socket.emit("user test", {ID:user.ID, authToken:user.authToken});
         }
         else {
             console.log("Not logged in.");
@@ -45,7 +53,7 @@ window.fbAsyncInit = function() {
     FB.Event.subscribe('auth.login', function(response){
         reload();
     });
-    FB.Event.subscribe('auth.logout', function(response){
+    FB.Event.subscribe('auth.logout', function(response){ 
         reload();
     });
 };
@@ -64,10 +72,17 @@ var clicker = function(data){
     console.log(data);
 };
 
+// Function to dispatch new message when "Send" is clicked in React
+var upload = function(data){
+    console.log("  --> UPLOAD STARTED");
+    console.log(data);
+    Socket.emit("post", {img:data.base64,plantname:data.name,location:data.location,authToken:user.authToken});
+};
+
 // Render the React components - call after state change
 var rend = function(){
    // Output React Application with current state
-    ReactDOM.render(<App clicker={clicker} route={route}/>, document.getElementById('app')); 
+    ReactDOM.render(<App clicker={clicker} route={route} user={user} upload={upload} posts={posts}/>, document.getElementById('app')); 
 };
 
 // Render the FB button separately "because"

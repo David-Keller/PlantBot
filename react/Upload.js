@@ -6,23 +6,18 @@ export class Upload extends React.Component {
         super(props);
         this.state = {
             file: '',
-            imagePreviewUrl: ''
+            imagePreviewUrl: '',
+            submit:props.upload
         };
 
      this._handleSubmit = this._handleSubmit.bind(this);
+     this.ImageChange = this.ImageChange.bind(this);
     }
 
     _handleSubmit(e) {
         e.preventDefault();
-        //this is just test code right now
-        let scope = this;
-        console.log("IMAG:");
-        console.log(scope.state.imageBase64);
-        console.log("LOCT:");
-        console.log(document.getElementsByName("location")[0].value);
-        console.log("NAME:");
-        console.log(document.getElementById("objname").value);
-        // TODO - Feed back into Main.js for socket work
+        let data = {base64:this.state.imageBase64, name:document.getElementById("objname").value, location:document.getElementsByName("location")[0].value};
+        this.state.submit(data);
     }
     
     ImageChange(e){
@@ -59,7 +54,7 @@ export class Upload extends React.Component {
 
     render(){
         return(
-            <div style={{"text-align":"left"}}>
+            <div style={{"textAlign":"left"}}>
                 <Row>
                 <label htmlFor="objname">Enter a name:</label>
                 <input id="objname" name="objname" type="text"/>
