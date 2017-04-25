@@ -1,4 +1,5 @@
-import flask_sqlalchemy, app, os
+import flask_sqlalchemy, os
+from app import db
 import math
 
 print "\"Models\" connected and DB import complete!"
@@ -20,6 +21,19 @@ class plants(db.Model):
     ifedit = db.Column(db.String(20))
     editdate = db.Column(db.String(60))
         
+    # Constructor from Python
+    def __init__(self, img, userid, name, location, date):
+        self.img = img
+        self.userid = userid
+        self.date = date
+        self.name = name
+        self.location = location
+        self.latitude = location.split(' ', 2)[0]
+        self.longitude = location.split(' ', 2)[1]
+    
+    def __repr__(self):
+        return "Plantpost: name: %s, user: %s, date: %s" % (self.name, self.userid, self.date)
+        
 class users(db.Model):
     userid = db.Column(db.Integer, primary_key = True)
     userlevel = db.Column(db.Integer, default = 0)
@@ -31,6 +45,6 @@ class users(db.Model):
         self.facebook = facebook
         
     def __repr__(self):
-        return "Obj.user: %s, %s" % self.username, str(self.userid)
+        return "Obj.user: %s, %s" % (self.username, self.userid)
     
 
