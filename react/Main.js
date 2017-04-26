@@ -110,11 +110,13 @@ Socket.on('oAuth', function(data){
 });
 
 Socket.on('results', function(data){
-    var posts = [];
+    posts = [];
     console.log("Search Results from server:")
     console.log(data);
     for(var i in data){
-        posts.append(data[i]);
+        console.log("Post:");
+        console.log(data[i]);
+        posts[posts.length]=data[i];
     }
     rend();
 });
