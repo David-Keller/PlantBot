@@ -17,7 +17,10 @@ export class Post extends React.Component {
     
     render(){
         console.log("Post starting render...");
+        console.log("State:");
         console.log(this.state);
+        console.log("Props:");
+        console.log(this.props);
         let name = this.state.name;
         let user = this.state.user;
         let date = this.state.date;
