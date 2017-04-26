@@ -120,9 +120,9 @@ def search(data):
         counter = 0
         for row in rows:
             #need to update user by doing a joined search... will do in future
-            data[counter] = {"name": row.name, "date": str(row.date), "id": row.id, "user": row.userid}
+            data[counter] = {"name": row.name, "date": str(row.date), "id": row.id, "user": row.userid, "URI": row.img}
             counter = counter +1
-        socketio.emit("results", data, room = request.sid)
+        socketio.emit("results", data)
 
 @socketio.on('img request')
 def imgRequest(data):

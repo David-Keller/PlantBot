@@ -15,7 +15,6 @@ import { ResultContainer } from './ResultContainer';
 export class App extends React.Component {
     constructor(props) {
         super(props);
-        console.log(props);
     }
     
     
@@ -31,6 +30,7 @@ export class App extends React.Component {
         }
         else{
             console.log("Going to application...");
+            console.log(this.props);
             return(<div className="plantBotApp">
                 
                     <Grid>
@@ -53,8 +53,13 @@ export class App extends React.Component {
 
                         <Col xs={10} md={2}>
                         </Col>
+
                         <Col xs={10} md={6}>
-                            <ResultContainer />
+                            <ResultContainer posts={this.props.posts} />
+                        </Col>
+                        <Col xs={12} md={6}>
+                            
+
                         </Col>
 
                         <Col xs={10} md={2}>

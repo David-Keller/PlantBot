@@ -1,30 +1,23 @@
 import * as React from 'react';
-import { Result } from './Result';
+import { Post } from './Post';
 import { Socket } from './Socket';
 
 export class ResultContainer extends React.Component {
     constructor(props){
         super(props);
-        this.state = {results: []};
-    }
-    
-    componentDidMount(){
-        var scope = this;
-        Socket.on('results', function(data){
-            var temp = [];
-            console.log(data);
-            for( var i in data){
-                temp.push( (<Result key = {data[i].id}  data = {data[i]} />));
-            }
-
-            scope.setState({results: temp});
-        });
+        console.log("Results container rendering with posts:");
+        console.log(this.props.posts);
     }
     
     render(){
         return(
-            <div className = "resultContainer">
-                {this.state.results}
+            <div className = "postContainer">
+                {this.props.posts.map(function(post, i){
+                  console.log('Post rendering...');
+                  console.log("Key:" + i);
+                  console.log(post);
+                  return <Post key={i}  post={post} />
+                })}
             </div>
             );
     }
