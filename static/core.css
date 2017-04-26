@@ -80,13 +80,13 @@ body{
     top:0; 
     bottom:0; 
     margin: auto;
-    
 }
 
 .img2{
     width: 100px;
     height: 100px;
     object-fit: contain;
+
     
 }
 

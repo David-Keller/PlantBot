@@ -21,6 +21,7 @@ export class Post extends React.Component {
                 <h3><strong>Search Results</strong></h3>
 
                 <h3> {this.props.post.name} {this.props.post.user} {this.props.post.date} </h3>
+                <br>
 
                 {img}
             </div>
