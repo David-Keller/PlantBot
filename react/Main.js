@@ -13,6 +13,7 @@ var potato = require("./Potato.js");
 // Init the SocketIO layer
 import * as SocketIO from 'socket.io-client';
 var Socket = SocketIO.connect();
+console.log("SocketIO SID:" + Socket.client.id)
 
 // Handle FB login dispatching
 /*global FB*/

@@ -54,6 +54,8 @@ def connect():
     # Optionally, do stuff that breaks CircleCI
     if os.getenv("CIRCLE_CI_TEST_ENV") != "TRUE":
         print "CircleCI environment not found!"
+    print("Socket ID:")
+    print(request.sid)
 
 @socketio.on('user test')
 def user_test(data):
