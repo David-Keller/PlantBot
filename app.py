@@ -1,6 +1,6 @@
 import os
 import flask
-from flask_socketio import SocketIO
+from flask_socketio import SocketIO, emit
 from flask import request
 import requests
 from datetime import datetime
