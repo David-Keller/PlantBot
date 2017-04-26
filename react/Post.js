@@ -19,6 +19,7 @@ export class Post extends React.Component {
         return(
             <div>
                 <h3> {this.props.post.name} {this.props.post.user} {this.props.post.date} </h3>
+                <br>
                 {img}
             </div>
             );

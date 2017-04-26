@@ -64,8 +64,8 @@ body{
   margin:auto;
 }
 .img{
-    width: 100%;
-    position:absolute; 
+  height: 200px;
+  position:absolute; 
   top:0; 
   bottom:0; 
   margin: auto;
