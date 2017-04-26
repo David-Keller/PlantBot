@@ -5,11 +5,11 @@ export class Personal extends React.Component {
     render() {
         return(
             <div>
-            <img src="/static/bob.png"></img>
+            <img src={this.props.user.url}></img>
             
             <br/>
-            
-            <h3>Hurr Durr I'm Bob!</h3>
+
+            <h3>{this.props.user.name}</h3>
             </div>
             );
     }

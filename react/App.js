@@ -37,7 +37,7 @@ export class App extends React.Component {
                     {/* SEARCH BAR */}
                     <Row>  
                         <Col xs={10} md={2}>
-                            <Personal/>
+                            <Personal user={this.props.user}/>
                         </Col>
                         <Col xs={10} md={6}>
                             <Search />
@@ -50,14 +50,15 @@ export class App extends React.Component {
                         
                     {/* APLICATION */}
                     <Row>
+
                         <Col xs={10} md={2}>
-                            
                         </Col>
                         <Col xs={10} md={6}>
                             <ResultContainer />
                         </Col>
+
                         <Col xs={10} md={2}>
-                            <Upload />
+                            <Upload  upload={this.props.upload}/>
                         </Col>
                     </Row>
 
