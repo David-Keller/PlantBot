@@ -4,7 +4,7 @@ import { Socket } from './Socket';
 export class Post extends React.Component {
     constructor(props){
         super(props);
-        let data = props.data
+        let data = props.post
         this.state = {
                     img: [], // late loaded
                     name: data.name,
@@ -29,7 +29,7 @@ export class Post extends React.Component {
             img = (<img className = 'img' src ={this.state.img}/>);
         }
         return(
-            <div className = "result">
+            <div>
                 <h3> {name} {user} {date} </h3>
                 {img}
             </div>
