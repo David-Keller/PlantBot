@@ -114,7 +114,7 @@ Socket.on('results', function(data){
     console.log("Search Results from server:")
     console.log(data);
     for(var i in data){
-        posts.push(data[i]);
+        posts.append(data[i]);
     }
     rend();
 });
