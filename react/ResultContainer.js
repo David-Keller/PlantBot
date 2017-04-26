@@ -5,6 +5,7 @@ import { Socket } from './Socket';
 export class ResultContainer extends React.Component {
     constructor(props){
         super(props);
+        
     }
     
     render(){
