@@ -14,7 +14,7 @@ export class Post extends React.Component {
         console.log(this.props);
         let img = (<div> </div>)
         if(this.props.post.URI != null){
-            img = (<img className = 'img' src ={this.state.URI}/>);
+            img = (<img className = 'img' src ={this.props.post.URI}/>);
         }
         return(
             <div>
