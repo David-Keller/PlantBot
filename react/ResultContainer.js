@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Post } from './Post';
-import { Socket } from './Socket';
 
 export class ResultContainer extends React.Component {
     constructor(props){

@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Upload } from './Upload';
-import { Socket } from './Socket';
 import { Banner } from './Banner';
 import { FaceBook } from './FaceBook';
 import { Intro } from './Intro';
@@ -40,7 +39,7 @@ export class App extends React.Component {
                             <Logo />
                         </Col>
                         <Col xs={12} md={6}>
-                            <Search/>
+                            <Search search={this.props.search}/>
                         </Col>
                         <Col xs={12} md={3}>
                             <h4>PlantBot</h4>

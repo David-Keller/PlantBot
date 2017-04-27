@@ -1,42 +1,22 @@
 import * as React from 'react';
-import { Socket } from './Socket';
 
 export class Search extends React.Component{
     constructor(props){
         super(props);
         
-        this.state = { name: '', date: '', mlocation: ''}        
-        
-         this._handleSubmit = this._handleSubmit.bind(this);
-         this.nameChange = this.nameChange.bind(this);
-         this.locationChange = this.locationChange.bind(this);
-         this.dateChange = this.dateChange.bind(this);
-    }
-    
-    nameChange(e){
-        this.setState({name: e.target.value});
-    }
-    
-    locationChange(e){
-        this.setState({mlocation: e.target.value});
-    }
-    dateChange(e){
-        
+        this._handleSubmit = this._handleSubmit.bind(this);
     }
     
     _handleSubmit(e) {
-        FB.getLoginStatus((response) => {
-            if (response.status == 'connected') {
-                Socket.emit('Search', {
-                    'facebook_user_token':
-                response.authResponse.accessToken,
-                'location': this.state.mlocation,
-                'distance': 200,
-                'name': this.state.name,
-                'date': this.state.date
-                });
-            }
-        });
+        console.log("Search submitted!");
+        let search = {
+            name: document.getElementById("name").value, 
+            date: document.getElementById("date").value, 
+            location: document.getElementById("location").value,
+            distance: 20
+        };
+        console.log(search);
+        this.props.search(search);
     }
     
     render(){
@@ -46,11 +26,11 @@ export class Search extends React.Component{
             <div>
                 <form>
                     <label htmlFor="name">Enter a name:</label>
-                    <input id = "name" type="text" value={this.state.name} onChange={(e)=>this.nameChange(e)} />
+                    <input id = "name" type="text"/>
                     <label htmlFor="location">Enter a location:</label>
-                    <input id = "location" type="text" value={this.state.mlocation} onChange={(e)=>this.locationChange(e)} />
+                    <input id = "location" type="text"/>
                     <label htmlFor="date"> Enter a date: </label>
-                    <input id = "date" type="date" value ={this.state.mdate} onChange = {(e)=>this.dateChange(e)} />
+                    <input id = "date" type="date"/>
                     <button type="button" onClick={this._handleSubmit}>Search</button>
                 </form>
             </div>
