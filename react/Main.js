@@ -4,11 +4,10 @@ import * as ReactDOM from 'react-dom';
 // 'bootstrap/dist/css/bootstrap.css';
 //import { Grid, Navbar, Nav, NavItem, Jumbotron, Button } from 'react-bootstrap';
 
-import { App } from './App';
+import { Router } from './Router';
 import { FaceBook } from './FaceBook';
 
 var potato = require("./Potato.js");
-
 
 // Init the SocketIO layer
 import * as SocketIO from 'socket.io-client';
@@ -17,7 +16,7 @@ var Socket = SocketIO.connect();
 // Handle FB login dispatching
 /*global FB*/
 var reload = function(){
-    console.log("BLAMO");
+    console.log("Reloading page!");
     console.log(route); 
     window.location.reload();
 }
@@ -42,7 +41,7 @@ window.fbAsyncInit = function() {
             user.ID = response.authResponse.userID;
             console.log("User:");
             console.log(user);
-            Socket.emit("user test", {ID:user.ID, authToken:user.authToken});
+            Socket.emit("user auth", {ID:user.ID, authToken:user.authToken});
         }
         else {
             console.log("Not logged in.");
@@ -67,30 +66,33 @@ window.fbAsyncInit = function() {
 }(document, 'script', 'facebook-jssdk'));
 
 // Function to dispatch new message when "Send" is clicked in React
-var clicker = function(data){
-    console.log("clicker clicked, data:");
-    console.log(data);
-};
-
-// Function to dispatch new message when "Send" is clicked in React
 var upload = function(data){
     console.log("  --> UPLOAD STARTED");
     console.log(data);
     Socket.emit("post", {img:data.base64,plantname:data.name,location:data.location,authToken:user.authToken});
 };
 
+// Function to dispatch new search query when "Search" button is clicked in react
+var search = function(search){
+    console.log("  --> SEARCH STARTED");
+    console.log(search);
+    Socket.emit("search", {name:search.name, date:search.date, location:search.location, distance:search.distance, authToken:user.authToken});
+};
+
 // Render the React components - call after state change
 var rend = function(){
    // Output React Application with current state
-    ReactDOM.render(<App clicker={clicker} route={route} user={user} upload={upload} posts={posts}/>, document.getElementById('app')); 
+    ReactDOM.render(<Router route={route} user={user} posts={posts} upload={upload} search={search}/>, document.getElementById('app')); 
 };
 
 // Render the FB button separately "because"
-ReactDOM.render(<FaceBook clicker={clicker}/>, document.getElementById('fb-root-btn')); 
+ReactDOM.render(<FaceBook />, document.getElementById('fb-root-btn')); 
 
 // When the user connects to the server, let the console know
 Socket.on('connect', function(){
     console.log("Client Connected!");
+    console.log("SocketIO:");
+    console.log(Socket);
     console.log("Incoming startchy vegetable...");
     potato.print();
 });
