@@ -12,12 +12,16 @@ app = flask.Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
 print "\n  -->LCYC: Socket.IO inits finished..."
 
+socketio = SocketIO(app)
+
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
+db = flask_sqlalchemy.SQLAlchemy(app)
+
 if os.getenv("CIRCLE_CI_TEST_ENV") != "TRUE":
     # import stuff that breaks CircleCI (db models?)
     print ("Test environment not found...")
     import models
 
-socketio = SocketIO(app)
 # Imports are finished
 print "\n  -->LCYC: Imports finished..."
 
@@ -176,6 +180,8 @@ def search(data):
 if __name__ == '__main__':
     print "\n\n  ----- APPLICATION RUNNING -----\n"
     print "\n  -->SCKT: Socket.IO manager initializing into application..."
+    db.init_app(app);
+    db.create_all();
     socketio.run(
         app,
         host=os.getenv('IP', '0.0.0.0'),
