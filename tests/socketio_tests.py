@@ -13,7 +13,7 @@ class SocketIOTestCase(unittest.TestCase):
         self.assertEquals(from_server['name'], 'hello')
         data = from_server['args'][0]
         # server message is calibrated correctly
-        self.assertEquals(data['message'], "Hello from the Python server!")
+        self.assertEquals(data['message'], "Hello from the PlantBot server!")
 
 if __name__ == '__main__':
     unittest.main()
