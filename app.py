@@ -166,7 +166,7 @@ def search(data):
                     counter = counter +1
                 print("Search results being sent...")
                 emit("results", returnData)
-                print(len(returnData) + " results sent.")
+                print(str(len(returnData)) + " results sent.")
             else:
                 print("**This error should never execute**")
         except KeyError:

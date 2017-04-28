@@ -4,11 +4,10 @@ import * as ReactDOM from 'react-dom';
 // 'bootstrap/dist/css/bootstrap.css';
 //import { Grid, Navbar, Nav, NavItem, Jumbotron, Button } from 'react-bootstrap';
 
-import { App } from './App';
+import { Router } from './Router';
 import { FaceBook } from './FaceBook';
 
 var potato = require("./Potato.js");
-
 
 // Init the SocketIO layer
 import * as SocketIO from 'socket.io-client';
@@ -17,7 +16,7 @@ var Socket = SocketIO.connect();
 // Handle FB login dispatching
 /*global FB*/
 var reload = function(){
-    console.log("BLAMO");
+    console.log("Reloading page!");
     console.log(route); 
     window.location.reload();
 }
@@ -83,7 +82,7 @@ var search = function(search){
 // Render the React components - call after state change
 var rend = function(){
    // Output React Application with current state
-    ReactDOM.render(<App route={route} user={user} posts={posts} upload={upload} search={search}/>, document.getElementById('app')); 
+    ReactDOM.render(<Router route={route} user={user} posts={posts} upload={upload} search={search}/>, document.getElementById('app')); 
 };
 
 // Render the FB button separately "because"

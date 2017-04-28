@@ -3,7 +3,7 @@ import { Login } from './Login';
 import { App } from './App';
 
 
-export class App extends React.Component {
+export class Router extends React.Component {
     
     constructor(props) {
         super(props);
@@ -18,7 +18,7 @@ export class App extends React.Component {
         else{
             console.log("Going to application...");
             console.log(this.props);
-            return(<App />);
+            return(<App user={this.props.user} posts={this.props.posts} upload={this.props.upload} search={this.props.search}/>);
         }
     }
 }
