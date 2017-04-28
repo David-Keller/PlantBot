@@ -5,13 +5,6 @@ from sqlalchemy import func
 import math
 print "\"Models\" connected and DB import started!"
 
-if(os.getenv("DATABASE_URL") is None):
-    app.app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://admin:pass@localhost/plantbot'
-else:
-    app.app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
-    
-db = flask_sqlalchemy.SQLAlchemy(app.app)
-
 # "PlantDB" DB Model
 class plants(db.Model):
     

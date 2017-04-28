@@ -6,6 +6,7 @@ import requests
 from datetime import datetime
 import json
 import time
+import flask_sqlalchemy
 
 # Set some basic app connections
 app = flask.Flask(__name__)
