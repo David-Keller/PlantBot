@@ -28,7 +28,6 @@ export class Search extends React.Component{
             <div>
                 <h3>Enter search criteria</h3>
                 <form>
-                    <Row>
                     <label htmlFor="name">Enter a name:</label>
 
                       {/* add cols & rows here!*/}
