@@ -8,8 +8,8 @@ export class Personal extends React.Component {
             <img src={this.props.user.url}></img>
             
             <br/>
-            
-            <h4>{this.props.user.name}</h4>
+
+            <h3>{this.props.user.name}</h3>
             </div>
             );
     }

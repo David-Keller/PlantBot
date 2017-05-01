@@ -1,4 +1,6 @@
 import * as React from 'react';
+import { Col, Row } from 'react-bootstrap';
+
 
 export class Search extends React.Component{
     constructor(props){
@@ -24,8 +26,12 @@ export class Search extends React.Component{
         
         return(
             <div>
+                <h3>Enter search criteria</h3>
                 <form>
+                    <Row>
                     <label htmlFor="name">Enter a name:</label>
+
+                      {/* add cols & rows here!*/}
                     <input id = "name" type="text"/>
                     <label htmlFor="location">Enter a location:</label>
                     <input id = "location" type="text"/>
