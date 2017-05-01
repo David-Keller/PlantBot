@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { Socket } from './Socket';
 
 export class Post extends React.Component {
     constructor(props){
@@ -17,11 +16,11 @@ export class Post extends React.Component {
             img = (<img className = 'img' src ={this.props.post.URI}/>);
         }
         return(
-            <div className = "result">
-                <h3><strong>Search Results</strong></h3>
 
+            <div className="post">
+                <h3><strong>Search Results</strong></h3>
                 <h3> {this.props.post.name} {this.props.post.user} {this.props.post.date} </h3>
-                <br>
+                <br/>
 
                 {img}
             </div>

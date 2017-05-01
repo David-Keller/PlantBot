@@ -1,9 +1,9 @@
-import flask_sqlalchemy
+import flask_sqlalchemy, os
 from app import db
 from sqlalchemy.ext.hybrid import hybrid_property, hybrid_method
 from sqlalchemy import func
 import math
-print "\"Models\" connected and DB import complete!"
+print "\"Models\" connected and DB import started!"
 
 # "PlantDB" DB Model
 class plants(db.Model):
@@ -74,4 +74,4 @@ class users(db.Model):
     def __repr__(self):
         return "Obj.user: %s, %s" % (self.username, self.userid)
     
-
+print("Finished importing models.py!")
