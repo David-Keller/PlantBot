@@ -60,7 +60,7 @@ export class Upload extends React.Component {
                 <input id="objname" name="objname" type="text"/>
                 </Row>
                 <Row>
-                <label htmlFor="location">Enter a location:</label>
+                <label htmlFor="location"> Enter a location:</label>
                 <input id="location" name="location" type="text"/>
                 </Row>
                 <Row>

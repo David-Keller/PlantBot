@@ -11,10 +11,10 @@ export class Leaf extends Component {
                               iconAnchor:   [24, 28],
                               iconSize:     [32, 32]
     })
-    for( var i in props.latlons){
+    for( var i in props.posts){
       console.log("maps");
-       console.log(props.latlons[i]);
-        temp.push( (<Marker key ={counter} position={props.latlons[i]} 
+      // console.log(props.latlons[i]);
+        temp.push( (<Marker key ={counter} position={props.posts[i].latlon} 
         icon = {icon}>
           <Popup>
             <span>Marina. <br /> California.</span>
@@ -36,7 +36,7 @@ export class Leaf extends Component {
 
   render () {
     return (
-      <Map center={this.state.center} zoom={this.state.zoom}>
+      <Map center={this.props.posts[0].center} zoom={this.state.zoom}>
         <TileLayer
           attribution='&copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'

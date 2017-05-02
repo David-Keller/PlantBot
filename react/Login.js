@@ -1,4 +1,6 @@
 import * as React from 'react';
+import { Logo } from './Logo';
+import { Intro } from './Intro';
 
 export class Login extends React.Component {
     constructor(props) {
@@ -8,10 +10,10 @@ export class Login extends React.Component {
     
     render() {
         return(
-            <div>
-                <button onClick={function(){this.props.clicker("Bingo, Bango!")}.bind(this)}>Click Here when Logged In to FB</button>
-                <h4>Login Above then Click to Continue!</h4>
-            </div>
+            <div className="plantBotLogin">
+                    <Logo />
+                    <Intro />
+                </div>
             );
     }
 }
