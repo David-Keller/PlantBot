@@ -14,8 +14,7 @@ app.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(app)
 print "\n  -->LCYC: Socket.IO inits finished..."
 
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
-db = flask_sqlalchemy.SQLAlchemy(app)
+
 
 if os.getenv("CIRCLE_CI_TEST_ENV") != "TRUE":
     # import stuff that breaks CircleCI (db models?)
@@ -120,8 +119,10 @@ def search(data):
         counter = 0
         for row in rows:
             #need to update user by doing a joined search... will do in future
-            data[counter] = {"name": row.name, "date": str(row.date), "id": row.id, "user": row.userid}
+            data[counter] = {"name": row.name, "date": str(row.date), "id": row.id, "user": row.userid, "latlon": [row.latitude, row.longitude],
+                "center": [float(lat), float(lon)]}
             counter = counter +1
+        # print(data[0])
         socketio.emit("results", data, room = request.sid)
 
 @socketio.on('img request')
@@ -145,8 +146,7 @@ def imgRequest(data):
 if __name__ == '__main__':
     print "\n\n  ----- APPLICATION RUNNING -----\n"
     print "\n  -->SCKT: Socket.IO manager initializing into application..."
-    db.init_app(app);
-    db.create_all();
+
     socketio.run(
         app,
         host=os.getenv('IP', '0.0.0.0'),

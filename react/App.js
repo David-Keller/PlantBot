@@ -7,6 +7,7 @@ import { Intro } from './Intro';
 import { Logo } from './Logo';
 import { Login } from './Login';
 import { Personal } from './Personal';
+// import { Leaf } from './Leaf';
 
 import { Grid, Navbar, Nav, NavItem, Jumbotron, Button, Col, Row } from 'react-bootstrap';
 import { Search } from './Search';

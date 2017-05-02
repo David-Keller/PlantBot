@@ -1,10 +1,15 @@
 import flask_sqlalchemy
-from app import db
+# from app import db
 from sqlalchemy.ext.hybrid import hybrid_property, hybrid_method
 from sqlalchemy import func
 import math
+import app
+import os
 print "\"Models\" connected and DB import complete!"
 
+app.app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL", 'postgresql://firefly:password@localhost/postgres')
+
+db = flask_sqlalchemy.SQLAlchemy(app.app)
 # "PlantDB" DB Model
 class plants(db.Model):
     
@@ -73,5 +78,5 @@ class users(db.Model):
         
     def __repr__(self):
         return "Obj.user: %s, %s" % (self.username, self.userid)
-    
-
+# db.init_app(app.app)
+# db.create_all()
