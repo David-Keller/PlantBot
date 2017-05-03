@@ -57,7 +57,6 @@ export class App extends React.Component {
                         <Col xs={10} md={2}>
                         </Col>
                     </Row>
-                    
 
                     </Grid>      
               </div>
