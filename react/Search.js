@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Col, Row } from 'react-bootstrap';
 
 
+
 export class Search extends React.Component{
     constructor(props){
         super(props);
@@ -28,15 +29,17 @@ export class Search extends React.Component{
             <div>
                 <h3>Enter search criteria</h3>
                 <form>
-                    <label htmlFor="name">Enter a name:</label>
-
-                      {/* add cols & rows here!*/}
+                <Row>
+                    <label htmlFor="name">Name:</label>
                     <input id = "name" type="text"/>
-                    <label htmlFor="location">Enter a location:</label>
+                    <label htmlFor="location">  Location:</label>
                     <input id = "location" type="text"/>
-                    <label htmlFor="date"> Enter a date: </label>
+                </Row>
+                <Row>
+                    <label htmlFor="date"> Date: </label>
                     <input id = "date" type="date"/>
                     <button type="button" onClick={this._handleSubmit}>Search</button>
+                </Row>
                 </form>
             </div>
             );

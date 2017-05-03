@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Col, Row } from 'react-bootstrap';
 
+
 export class Upload extends React.Component {
     constructor(props) {
         super(props);
@@ -55,6 +56,7 @@ export class Upload extends React.Component {
     render(){
         return(
             <div style={{"textAlign":"left"}}>
+                <h3>Upload an image</h3>
                 <Row>
                 <label htmlFor="objname">Enter a name:</label>
                 <input id="objname" name="objname" type="text"/>
