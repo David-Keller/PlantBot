@@ -22,35 +22,42 @@ export class App extends React.Component {
                     {/* SEARCH BAR */}
                     <Row>  
                         <Col xs={10} md={2}>
-                            <Personal user={this.props.user}/>
+                            <h4><strong>PlantBot</strong></h4>
                         </Col>
                         <Col xs={10} md={6}>
-                             <Search search={this.props.search}/>
+                             
                         </Col>
                         <Col xs={10} md={2}>
-                            <h4><strong>PlantBot</strong></h4>
-                            <Logo />
+                             <Personal user={this.props.user}/>
                         </Col>
                     </Row>
                         
-                    {/* APLICATION */}
                     <Row>
 
                         <Col xs={10} md={2}>
+                            <Logo />
                         </Col>
 
                         <Col xs={10} md={6}>
-                            <ResultContainer posts={this.props.posts} />
-                        </Col>
-                        <Col xs={12} md={6}>
-                            
-
+                            <Search search={this.props.search}/>
                         </Col>
 
                         <Col xs={10} md={2}>
                             <Upload  upload={this.props.upload}/>
                         </Col>
                     </Row>
+                    
+                    <Row>
+                        <Col xs={10} md={2}>
+                        </Col>
+
+                        <Col xs={10} md={6}>
+                            <ResultContainer posts={this.props.posts} />
+                        </Col>
+                        <Col xs={10} md={2}>
+                        </Col>
+                    </Row>
+                    
 
                     </Grid>      
               </div>

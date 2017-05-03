@@ -5,7 +5,7 @@ export class Personal extends React.Component {
     render() {
         return(
             <div>
-            <img src={this.props.user.url}></img>
+            <img src={this.props.user.url} width="60" height="60"></img>
             
             <br/>
 
