@@ -119,11 +119,11 @@ A browser-based app for identifying flowers and plants from your hiking adventur
 ### Final Product
 
 #### Login Process
-![Landing Page](https://github.com/CSUMB-SP17-CST438/PlantBot/blob/master/landingPage.png)
-![Login For Facebook](https://github.com/CSUMB-SP17-CST438/PlantBot/blob/master/FaceBookLogin.png)
-![Landing Page](https://github.com/CSUMB-SP17-CST438/PlantBot/blob/master/loginPage.png)
+![Starting Page](https://cloud.githubusercontent.com/assets/16908252/25688046/6f49b9f8-3030-11e7-817f-85948b743f35.png)
+![Login For Facebook](https://cloud.githubusercontent.com/assets/16908252/25688044/6b08d04a-3030-11e7-84d8-bb9c37a6bd8f.png)
+![Landing Page](https://cloud.githubusercontent.com/assets/16908252/25688045/6f355706-3030-11e7-9eaa-dcd54ac68ede.png)
 
 #### Upload Image
-![Upload Image](https://github.com/CSUMB-SP17-CST438/PlantBot/blob/master/ImageUpload.png)
+![Upload Image](https://cloud.githubusercontent.com/assets/16908252/25688041/68754372-3030-11e7-9d8b-87e70ff77e43.png)
 
 #### Search for an Image
