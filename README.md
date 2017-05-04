@@ -107,13 +107,13 @@ A browser-based app for identifying flowers and plants from your hiking adventur
 
 ### Mocks
 #### Landing Page
-![Landing Page](/docs/mocks/landing.png "Landing Page")
+![Landing Page](https://cloud.githubusercontent.com/assets/16908252/25688495/6c64ec7c-3034-11e7-9686-fb98ec2d15e4.png)
 
 #### Home Page
-![Home Page](/docs/mocks/home.png "Home Page")
+![Home Page](https://cloud.githubusercontent.com/assets/16908252/25688494/6c4ee710-3034-11e7-9686-fa1130809736.png)
 
 #### Search Page
-![Search Page](/docs/mocks/search.png "Search Page")
+![Search Page](https://cloud.githubusercontent.com/assets/16908252/25688493/6c4b4952-3034-11e7-9dc1-5b6eec89d404.png)
 
 
 ### Final Product
