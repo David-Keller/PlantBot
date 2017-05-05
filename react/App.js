@@ -37,10 +37,9 @@ export class App extends React.Component {
                         <Col xs={10} md={2}>
                             <Logo />
                         </Col>
-
                         <Col xs={10} md={6}>
-                        </Col>
                             <ResultContainer posts={this.props.posts} />
+                        </Col>
                         <Col xs={10} md={2}>
                             <Upload  upload={this.props.upload}/>
                         </Col>
