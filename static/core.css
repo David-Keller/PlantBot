@@ -159,5 +159,6 @@ h2{
     border-radius:5px;
 }
 canvas{
+    margin:auto;
     margin-bottom:15px;
 }
