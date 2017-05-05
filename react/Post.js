@@ -11,11 +11,10 @@ export class Post extends React.Component {
         console.log(this.state);
         console.log("Props:");
         console.log(this.props);
-        let img = (<div> </div>)
+        var canvas = new Canvas();
         if(this.props.post.URI != null){
-            var canvas = document.getElementById('canvas');
             var context = canvas.getContext('2d');
-            img = new Image();
+            var img = new Image();
             img.onload = function() {
                 if(img.width > canvas.width){
                     let ratio = img.width/200;
@@ -38,8 +37,7 @@ export class Post extends React.Component {
                 <h3><strong>Search Results</strong></h3>
                 <h3> {this.props.post.name} {this.props.post.user} {this.props.post.date} </h3>
                 <br/>
-
-                {img}
+                {canvas}
             </div>
             );
     }
