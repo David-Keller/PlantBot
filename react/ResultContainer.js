@@ -42,15 +42,10 @@ export class ResultContainer extends React.Component {
     }
     
     render(){
-        let map = (<div> </div>);
         console.log("RESULTS CONTANER PROPS:")
         console.log(this.props)
-        if(this.props.posts.length != 0){
-             map = (<Leaf posts = {this.props.posts}/>);
-        }
         return(
             <div className = "postContainer">
-            {map}
                 {this.props.posts.map(function(post, i){
                   console.log('Post rendering...');
                   console.log("Key:" + i);
