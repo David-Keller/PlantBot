@@ -5,7 +5,6 @@ export class Post extends React.Component {
         super(props);
     }
     componentDidMount(){
-    var $this = $(ReactDOM.findDOMNode(this));
     if(this.props.post.URI != null){
             var canvas = document.getElementById("canvas" + this.props.id);
             var context = canvas.getContext('2d');
