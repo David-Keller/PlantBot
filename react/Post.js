@@ -32,7 +32,7 @@ export class Post extends React.Component {
         console.log(this.state);
         console.log("Props:");
         console.log(this.props);
-        let img = (<canvas style={{margin:"auto"}} className="canvas" id={"canvas" + this.props.id} />)
+        let img = (<canvas style={{margin:"auto"}} className="canvas" id={"canvas" + this.props.post.id} />)
         return(
 
             <div className="post">
