@@ -156,6 +156,8 @@ def search(data):
                 print("User: " + connections[request.sid])
                 requestlist = models.plants.query
                 filterlist = ['name']
+                let lat = '';
+                let lon = '';
                 for f in filterlist:
                     if((data[f] != "no filter") | (data[f] != "")): #keeping options open
                         requestlist = requestlist.filter( getattr(models.plants, f).ilike(data[f]))
