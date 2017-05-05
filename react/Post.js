@@ -8,7 +8,7 @@ export class Post extends React.Component {
     if(this.props.post.URI != null){
             var canvas = document.getElementById("canvas" + this.props.id);
             var context = canvas.getContext('2d');
-            img = new Image();
+            var img = new Image();
             img.onload = function() {
                 if(img.width > canvas.width){
                     let ratio = img.width/200;
