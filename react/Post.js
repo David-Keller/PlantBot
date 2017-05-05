@@ -11,16 +11,16 @@ export class Post extends React.Component {
             var img = new Image();
             img.onload = function() {
                 if(img.width > canvas.width){
-                    let ratio = img.width/200;
+                    let ratio = img.width/300;
                     img.width = img.width/ratio;
                     img.height = img.height/ratio;
                 }
                 if(img.height > canvas.height){
-                    let ratio = img.height/200;
+                    let ratio = img.height/150;
                     img.width = img.width/ratio;
                     img.height = img.height/ratio;
                 }
-                context.clearRect(0, 0, 200, 200);
+                context.clearRect(0, 0, 300, 150);
                 context.drawImage(this, 0, 0, img.width, img.height);
             }
             img.src = this.props.post.URI;

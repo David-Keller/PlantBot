@@ -154,3 +154,7 @@ h2{
     text-align:center;
     width:20%;
 }
+.post{
+    border:2px solid gray;
+    border-radius:5px;
+}
