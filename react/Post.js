@@ -6,7 +6,7 @@ export class Post extends React.Component {
     }
     componentDidMount(){
     if(this.props.post.URI != null){
-            var canvas = document.getElementById("canvas" + this.props.id);
+            var canvas = document.getElementById("canvas" + this.props.post.id);
             var context = canvas.getContext('2d');
             var img = new Image();
             img.onload = function() {
@@ -36,7 +36,7 @@ export class Post extends React.Component {
         return(
 
             <div className="post">
-                <h3><strong>Search Results</strong></h3>
+                <h3><strong>Result #{this.props.post.id}</strong></h3>
                 <h3> {this.props.post.name} {this.props.post.user} {this.props.post.date} </h3>
                 <br/>
                 {img}
