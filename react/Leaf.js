@@ -26,7 +26,7 @@ export class Leaf extends Component {
     this.state = {
       latlons:props.latlons,
        results: temp,
-      center: props.center,
+      //center: props.center,
       zoom: 12 //need to write a function to solve for this
       
     };
@@ -36,7 +36,7 @@ export class Leaf extends Component {
 
   render () {
     return (
-      <Map center={this.props.posts[0].center} zoom={this.state.zoom}>
+      <Map zoom={this.state.zoom}>
         <TileLayer
           attribution='&copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'

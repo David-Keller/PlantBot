@@ -156,8 +156,6 @@ def search(data):
                 print("User: " + connections[request.sid])
                 requestlist = models.plants.query
                 filterlist = ['name']
-                lat = '';
-                lon = '';
                 for f in filterlist:
                     if((data[f] != "no filter") | (data[f] != "")): #keeping options open
                         requestlist = requestlist.filter( getattr(models.plants, f).ilike(data[f]))
@@ -170,7 +168,7 @@ def search(data):
                 counter = 0
                 for row in rows:
                     #need to update user by doing a joined search... will do in future
-                    returnData[counter] = {"name": row.name, "date": str(row.date), "id": row.id, "user": row.userid, "URI": row.img, "center": [float(lat), float(lon)], "latlon":[row.latitude, row.longitude]}
+                    returnData[counter] = {"name": row.name, "date": str(row.date), "id": row.id, "user": row.userid, "URI": row.img, "latlon":[row.latitude, row.longitude]}
                     counter = counter +1
                 print("Search results being sent...")
                 emit("results", returnData, room = request.sid)
